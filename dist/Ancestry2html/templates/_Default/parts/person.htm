@@ -1,0 +1,64 @@
+<div class="${class} person">
+
+	<#if person.female>
+		<div class="female top">
+		</div>
+		<div class="female b1">
+		</div>
+		<div class="female b2">
+		</div>
+		<div class="female b3">
+		</div>
+		<div class="female middle">
+	<#else>
+		<div class="male">
+	</#if>
+
+	<#if person.hidden>
+		<div class="small_left small_text nohead">
+			${msg('person.hidden')}
+		</div>
+	<#elseif person.id?? && person.id==-2>
+		<div class="small_left small_text nohead">
+			<#if person.male>${msg('father.unknown')}<#else>${msg('mother.unknown')}</#if>
+		</div>
+	<#else>
+		<#if person.head>
+			<img src="../imgs/minihlava${person.id}.jpg" class="head" alt="head"/>
+		</#if>
+
+		<div class="small_left small_text <#if !person.head>nohead</#if>">
+			<#if person.id??>
+			<a href="../${utils.personalFile(person.id)}" title="${person.lastname!} ${person.firstname!}">${person.secondname!}<br/>${person.firstname!}</a>
+			</#if><br/>
+
+			<#if my.onlyBirthDate??>
+				<#if person.birthDate??>* ${person.birthDate}</#if>
+			<#else>
+				<#if marriageDetail?? && marriageDetail==true>
+					<a href="../${utils.partnersFile(person.getPartnership(currentPerson.id).id)}">- ${msg('person.partnersDetails')}</a><br/>
+				</#if>
+
+				<#if person.birthDate??>* ${person.birthDate}</#if><br/>
+				<#if person.birthPlace??>&nbsp;&nbsp;${person.birthPlace}</#if><br/>
+				<#if person.deathDate??>&dagger; ${person.deathDate}</#if><br/>
+				<#if person.deathPlace??>&nbsp;&nbsp;${person.deathPlace}</#if>&nbsp;
+			</#if>
+		</div>
+	</#if>
+
+	<#if person.female>
+		</div>
+		<div class="female b3">
+		</div>
+		<div class="female b2">
+		</div>
+		<div class="female b1">
+		</div>
+		<div class="female bottom">
+		</div>
+	<#else>
+		</div>
+	</#if>
+
+</div>

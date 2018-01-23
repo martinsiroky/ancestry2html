@@ -1,0 +1,217 @@
+Manual for editing or creating new html templates
+Manual for using freemarker library you can find on http://freemarker.sourceforge.net/docs
+
+----------------------------------------------------------------------------------------------------
+
+You can use following objects in templates:
+
+	object g (global information) and its properties:
+
+		${g.author} ... author of the rod file
+		${g.created} ... creation date of rod file
+		${g.cooperated} ... cooperated people of rod file
+		${g.rodUser1} ... name of user defined item nr. 1
+		${g.rodUser2} ... name of user defined item nr. 2
+		${g.rodUser3} ... name of user defined item nr. 3
+		${g.rodUser4} ... name of user defined item nr. 4
+		${g.rodUser5} ... name of user defined item nr. 5
+		${g.today} ... date of generating (current date - get from system)
+		${g.generatorVersion} ... version of generator that was used for generate this html
+		${g.ancestryVersion} ... version of Ancestry that was rod file created in
+		${g.buildTime} ... build time of application
+
+	object peopleList - contains list of all people, basic using is following:
+		
+		<#list peopleList as person>
+			this block will be repeated for each person. In this block you can access to all properties of person by using variable "person"
+			E.g. ${person.firstname} etc.
+		</#list>
+
+	object placesList - contains list of all places; basic example of using:
+
+		<#list placesList as place>
+			this block will be repeated for each place. In this block you can access to all properties of place by using variable "place"
+			E.g. ${place.town} etc.
+		</#list>
+
+	object firstLetter - contains listof all first letters of lastnames of people (useful for links to group of names in list page)
+
+
+	object person (it is described bellow which variable to use instead of xxx)
+
+		${xxx.id} ... person id
+		${xxx.ident} ... person identification used in Ancestry
+		${xxx.firstname} ... first name
+		${xxx.lastname} ... last name
+		${xxx.maidenname} ... maiden name
+		${xxx.secondname} ... maiden name or lastname (depends on configuration)
+		${xxx.name} ... maiden name or lastname (depends on configuration) + first name (with space between)
+		${xxx.titleFront} ... front title
+		${xxx.titleBack} ... back title
+		${xxx.birthDate} ... birth date
+		${xxx.birthPlace} ... birth place
+		${xxx.birth} ... birth date + birth place (separator is configurable in config)
+		${xxx.deathDate} ... death date
+		${xxx.deathPlace} ... death place
+		${xxx.death} ... death date + death place (separator is configurable in config)
+		${xxx.fathersId} ... prints fathers id
+		${xxx.father} ... returns father (object person)
+		${xxx.mothersId} ... prints mothers id
+		${xxx.mother} ... returns mother (object person)
+		${xxx.insertDate} ... when the person was inserted into rod file
+		${xxx.changeDate} ... when the person was modified (last modification)
+		${xxx.live} ... prints true in case person is live (otherwise false), usually the blocks tags are used only
+		${xxx.dead} ... prints true in case person is dead
+		${xxx.male} ... prints true in case person is male
+		${xxx.female} ... prints true in case person is female
+		${xxx.head} ... prints true in case person has picture of head
+		${xxx.burialPlace} ... burial place
+		${xxx.deathCause} ... couse of death
+		${xxx.religion} ... religion
+		${xxx.christening} ... christening
+		${xxx.godparent1} ... first godparent
+		${xxx.godparent2} ... second godparent
+		${xxx.nationality} ... nationality
+		${xxx.citizenship} ... citizenship
+		${xxx.email1} ... first email
+		${xxx.email2} ... second email
+		${xxx.phone1} ... first phone number
+		${xxx.phone2} ... second phone number
+		${xxx.web1} ... first web page
+		${xxx.web2} ... second web page
+		${xxx.web1http} ... first web page (add http:// in cese web1 doesn't start with http), useful in href attribute
+		${xxx.web2http} ... second web page (add http:// in cese web2 doesn't start with http), useful in href attribute
+		${xxx.userDef1} ... value of user defined item
+		${xxx.userDef2} ... value of user defined item
+		${xxx.userDef3} ... value of user defined item
+		${xxx.userDef4} ... value of user defined item
+		${xxx.userDef5} ... value of user defined item
+		${xxx.groups} ... prints list of groups that current person belongs to
+		${xxx.group1} ... prints true in case the person belongs to the given group (groups are configured in properties file)
+		${xxx.group2} ... prints true in case the person belongs to the given group (groups are configured in properties file)
+		${xxx.group3} ... prints true in case the person belongs to the given group (groups are configured in properties file)
+		${xxx.group4} ... prints true in case the person belongs to the given group (groups are configured in properties file)
+		${xxx.group5} ... prints true in case the person belongs to the given group (groups are configured in properties file)
+
+		${xxx.rightSiblings} ... list of all right siblings of given person (with same father and same mother as given person).
+														 Use with tag <#list>. E.g. <#list c.rightSiblings as rs> body of the block, ${rs.birth} </#if>.
+
+		${xxx.halfSiblings} ... list of all half siblings of given person (with only one same parent).
+														Use with tag <#list>.
+
+		${xxx.siblings} ... list of all siblings of given person (right sibling or half sibling).
+												Use with tag <#list>.
+
+		${xxx.partners} ... list of partners of given person. Use with tag <#list>.
+
+		${xxx.children} ... list of children of given person. Use with tag <#list>.
+
+		${xxx.places} ... list of places, where the person lived. (returns list of objects "Place" - its properties are described bellow)
+											Use with tag <#list>. E.g. <#list c.places as place> ${place.address} </#list>
+
+		${xxx.jobs} ... list of jobs of given person. Use with tag <#list>.
+
+		${xxx.education} ... list of education of given person. Use with tag <#list>.
+
+		${xxx.photos} ... list of photos of given person. Use with tag <#list>.
+		${xxx.documents} ... list of files of given person. Use with tag <#list>.
+		${xxx.credentials} ... list of credentials of given person. Use with tag <#list>.	
+		${xxx.hierarchy} ... position of person in hierarchical list, 0 for curren generation, -1 children, -2 grandchildren etc., 1 for parents,
+												 2 for grandparents etc.
+
+	object "place" and its properties:
+
+		${place.address} ... returns address
+		${place.from} ... returns date since the person live in this place
+		${place.to} ... returns to when the person live in this place
+		${place.fromTo} ... returns from + to (separator is configurable in config)
+
+	object "job" and its properties:
+
+		${job.position} ... returns position
+		${job.from} ... returns date since the person works here
+		${job.to} ... returns to when the person works here
+		${job.fromTo} ... returns from + to (separator is configurable in config)
+
+	object "education" and its properties:
+
+		${edu.name} ... returns name of school
+		${edu.from} ... returns date since the person study here
+		${edu.to} ... returns to when the person study here
+		${edu.fromTo} ... returns from + to (separator is configurable in config)
+
+	object "photography" and its properties:
+
+		${photo.id} ... id of photo
+		${photo.name} ... name of photo
+		${photo.year} ... year of taking
+		${photo.description} ... description of photo
+		${photo.people} ... list of people assigned to this photo
+
+	object "person-place" and its properties:
+
+		${place.town} ... town or village name
+		${place.person} ... person assigned to this place
+		${place.birthPlace} ... returns true, in case person was born on this place
+		${place.livePlace} ... returns true, in case person lived on this place
+		${place.deathPlace} ... returns true, in case person died on this place
+		${place.burialPlace} ... returns true, in case person is buried on this place
+
+	object "utils" a its methods:
+
+		${utils.getFirstLetter(text)} ... returns first letter of text (e.g. 'Ch' in czech words)
+		${utils.isNewLetter(text, last)} ... compares first letter of text and letter "last"; returns true in case they are different
+		${utils.getPersonalFile(int id)} ... returns name of file for person with given id
+		${utils.getPartnersFile(int id)} ... returns name of file for partnership with given id
+		${utils.getListFile()} ... returns name of file with alphabetical list of people
+		${utils.getHierarchicalListFile()} ... returns name of file with hierarchical list of people
+		${utils.getIndexFile()} ... returns name of main index file 
+		${utils.getPhotoFile(int id)} ... returns name of file with details of photo with given id
+		${utils.getDocumentFile(id)} ... returns name of file with details of file (document) with given id
+		${utils.getCredentialFile(id)} ... returns name of file with details of credentials with given id
+		${utils.getPlacesListFile()} ... returns name of file with list of places
+
+----------------------------------------------------------------------------------------------------
+
+Usage of objects in templates:
+
+	Variables used in list of person template:
+
+		You can use variable "g" with global information.
+		You can use variable "peopleList" contained list of all people.
+		You can use variable "firstLetters" with list of all first letters of people
+		You can use variable "utils".
+
+	Variables used in list of places template:
+
+		You can use variable "placesList" contained list of all places.
+		You can use variable "utils".
+
+	Variables used in photo detail template:
+
+		You can use variable "ph" with photo details.
+		You can use variable "utils".
+
+	Variables used in document detail template:
+
+		You can use variable "doc" with document details.
+		You can use variable "utils".
+
+	Variables used in credentials detail template:
+
+		You can use variable "cred" with credentials details.
+		You can use variable "utils".
+
+	Variables used in personal detail template:
+
+		You can use variable "g".
+		You can use variable "c" (like current person) that will get data for current person.
+		You can use variable "m" (like mother of current person) that will get data for mother of current person.
+		You can use variable "f" (like father of current person) that will get data for father of current person.
+		You can use variable "ff" (like father of father) that will get data for father of father of current person.
+		You can use variable "mf" (like mother of father) that will get data for mother of father of current person.
+		You can use variable "fm" (like father of mother) that will get data for father of mother of current person.
+		You can use variable "mm" (like mother of mother) that will get data for mother of mother of current person.
+		You can use variable "utils".
+
+		To other person you can access in following way: e.g. ${mm.father.father.lastname} prints last name of father of father of mother of mother of current person.

@@ -1,0 +1,45 @@
+<#assign cssInRoot=true>
+<#include "parts/header.htm"> 
+
+<div class="groupBox homePage">
+	<h1>${msg('index.headline',g.title)}</h1>
+	
+	<div id="block_0">
+		<div class="block"><a href="${utils.listFile}">${msg('index.list')}</a></div>
+		<div class="block"><a href="${utils.hierarchicalListFile}">${msg('index.listHierarchy')}</a></div>
+		<div class="block"><a href="${utils.placesListFile}">${msg('index.listPlaces')}</a></div>
+		<div class="block"><a href="${utils.statisticsFile}">${msg('index.statistics')}</a></div>	
+		<#if utils.photos><div class="block"><a href="${utils.photosFile}">${msg('index.listPhotos')}</a></div></#if>
+		<#if utils.documents><div class="block"><a href="${utils.documentsFile}">${msg('index.listDocuments')}</a></div></#if>
+		<#if utils.credentials><div class="block"><a href="${utils.credentialsFile}">${msg('index.listCredentials')}</a></div></#if>
+	</div>
+</div>
+
+<div class="groupBox">
+	${msg('index.authorInfo',g.author)}
+	<#if g.cooperated??>${msg('index.authorInfo2',g.cooperated)}</#if>,
+	${msg('index.authorInfo3',g.profile,g.template)}
+	
+	<#--separator between two words ("and")--><#assign separator> ${msg('separator')} </#assign>
+	
+	<#list g.allowedGroups as group>
+		<#assign allowedGroups>${allowedGroups!""}"${group}"<#if group_has_next><#if (g.allowedGroups?size>2)>, <#else>${separator}</#if></#if></#assign>
+	</#list>
+	
+	
+	<#list g.hiddenGroups as group>
+		<#assign hiddenGroups>${hiddenGroups!""}"${group}"<#if group_has_next><#if (g.hiddenGroups?size>2)>, <#else>${separator}</#if></#if></#assign>
+	</#list>
+
+	<#compress>
+	<#if (allowedGroups??)>${msg('index.groupInfo',allowedGroups!"",g.allowedGroups?size,g.hiddenGroups?size)}</#if><#if (hiddenGroups??)>${msg('index.groupInfo2',hiddenGroups!"",g.hiddenGroups?size,g.allowedGroups?size)}</#if>
+	</#compress>
+</div>
+
+<#if !config.hideAdditionalInfoOnIndex && g.additionalInfo??>
+	<div class="groupBox">
+		${g.additionalInfo}
+	</div>
+</#if>
+
+<#include "parts/footer.htm"> 

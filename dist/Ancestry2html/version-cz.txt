@@ -1,0 +1,195 @@
+Ancestry2html je program sloužící k vytváøení html stránek pro zobrazování stromu rodokmenu vytvoøeného v programu Ancestry. Mùže být spuštìn jako samostatný program nebo pøímo jako modul z menu Ancestry. Program je zcela zdarma. Další informace naleznete na stránkách http://sirsi.wz.cz/ancestry2html.php.
+
+Historie verzí programu:
+
+Verze 1.4.3.4:
+28.4.2010 - Pøidán nìmecký jazyk pro generování. Oprava statistik pøi délce života 0 dní.
+
+Verze 1.4.3.3:
+22.3.2010 - Opavena chyba skrývání míst narození, úmrtí a bydlištì v seznamu míst
+
+Testovací verze 1.4.3.2:
+3.8.2009 - Opavena chyba v šablonì index.htm
+
+Testovací verze 1.4.3.1:
+8.7.2009 - Skryty skryté dìti v detailu partnerství
+
+Verze 1.4.2.5:
+8.7.2009 - Skryty skryté dìti v detailu partnerství
+
+Verze 1.4.2.4:
+7.7.2009 - Vydána pro bìžné uživatele
+
+Testovací verze 1.4.2.3:
+15.5.2009 - Oprava chybky pøi chybìjícím parametru "activePerson" v rodz souboru
+
+Testovací verze 1.4.2.2:
+26.4.2009 - Oprava chybky pøi naèítání staršího rod formátu
+
+Testovací verze 1.4.2.1:
+26.3.2009 - Oprava nefunkèního kopírování doplòujících souborù a fotografií
+
+Testovací verze 1.4.2:
+22.3.2009 - Drobné opravy pøi naèítání z rodz (správné naèítání prázdných údajù)
+          - Tooltip s celým jménem osoby a fotkou po najetí na jméno kdekoli na stránkách
+
+Testovací verze 1.4.1:
+17.3.2009 - Podpora nového formátu rodz (zazipované xml s dalšími složkami jako složka s obrázky apod.)
+
+Testovací verze 1.4.0:
+10.3.2009 - Podpora nového formátu rodx (xml)
+
+Verze 1.3.4.3:
+5.3.2009  - Nutná oprava zpùsobující zatuhnutí programu u vìtších rod souborù
+          - Ze statistik ostranìny chybné délky manželství pro nežijící osoby bez data úmrtí
+
+Verze 1.3.4.1 a 1.3.4.2:
+4.3.2009  - Nutná oprava kvùli NullPointerException pøi výpoètu statistik (v nìkterých pøípadech)
+          - Oprava výpoètu rodièù,prarodièù a praprarodièù ve statistikách
+
+Verze 1.3.4:
+1.3.2009  - Pøidána položka Neznámý otec
+          - Mnoho nových statistik na stránce se statistikou
+          - Skrytí data rozvodu u skryté osoby (opraveno)
+          - Opraven problém s pøegenerováváním seznamu míst pro rùzné skupiny
+          - Pøeklady použité v oknì používají csv soubor (jako pøeklady pro html)
+          - Opraven pøeklad v patièce
+
+Verze 1.3.3:
+31.1.2009 - Seznam fotografií, dokumentù a dokladù na stránkách partnerství
+          - Hlavní osoba je standardnì "Aktivní" osoba v Ancestry
+          - Øazení dìtí na stránkách partnerství
+          - Øazení fotografií, dokumentù a dokladù podle roku
+          - Vyøešen problém nastavení hlavní osoby v hierarchickém seznamu osob
+          - Tlaèítko na zjištìní nové verze
+
+Verze 1.3.2.1:
+20.1.2009 - Øazení '?' až za 'Ž' nikoli za 'Z'
+          - Oprava nastavení hlavní osoby v cestì mezi aktuální a hlavní osobou
+
+Verze 1.3.2:
+18.1.2009 - Oprava problému s malým spodním odsazením fotky osoby ve stylu Basic pøi zobrazení v IE 6+7
+          - Oprava špatného levého odsazení bunìk ve stylu TreeView v rùzných rozlišeních (fixní šíøka stránky)
+          - Ostranìn oddìlovaè tisícù (mezera) v èíslech na stránkách (letopoèty)
+          - Osoby s neznámým pøíjmením pøesunuty na konec seznamu osob
+
+Verze 1.3.1.1:
+4.1.2009  - Øazení sourozencù nyní i v seznamu sourozencù (ne pouze ve stromì)
+          - Aktualizován pøeklad html stránek do slovenštiny
+
+Verze 1.3.1:
+3.1.2009  - Podpora knihovny jQuery (možnost použít externí javascript)
+          - Hledání osob pøidáno i na hierarchický seznam
+          - Øazení dìtí a sourozencù podle data narození + partneøi øazeni hierarchicky
+          - Drobná oprava zobrazování spojnic bunìk
+
+Verze 1.3.0.1:
+29.12.2008 - Oprava chyby pøi zmìnì výstupní složky a následném naètení nastavení okna
+
+Verze 1.3.0:
+28.12.2008 - Automatické zavírání okna po vygenerování
+           - Automatické otevøení prohlížeèe po vygenerování stránek
+           - Volba jazyka okna
+           - Vylepšení zobrazování progressbaru (ukládání nastavení do výstupní složky)
+           - Pøíprava pro naèítání rodu v UTF-8
+           - Kontrola nové verze na webu
+
+Verze 1.2.0.9b:
+6.12.2008  - Oprava zobrazení skrytých osob v cestì
+           - Oprava generování souborù s detaily partnerství skrytých osob
+
+Verze 1.2.0.9:
+8.11.2008  - Možnost uložení vlastního profilu nastavení soukromí + možnost smazání vlastních profilù.
+           - Zobrazení vztahu mezi hlavní osobou a vybranou osobou na stránce detailù osoby
+           - Uložení nastavení použitého pøi posledním generování pøímo do výstupní složky a jeho naètení pøi zmìnì výstupní složky.
+
+Verze 1.2.0.8:
+24.8.2008  - Asi ètyønásovné zrychlení aplikace (problém s logováním vyøešen). Úroveò logování nastavena defaultnì na INFO s možností zapnout DEBUG.
+
+Verze 1.2.0.7:
+3.8.2008   - Oprava lomítka ve vygenerovaných odkazech pro zmìnu jazyka.
+
+Verze 1.2.0.6:
+1.8.2008   - Podpora generování výcejazyèných stránek se sdílenými fotografiemi.
+
+Verze 1.2.0.5:
+27.7.2008  - Zobrazeno upozornìní o použití pøíjmení místo rodných pøíjmení na stránkách (je-li vybrána tato volba)
+           - Možnost spouštìt program pøímo z Ancestry (s parametrem lang + cesta k rod souboru
+           - Zobrazení titulù na stránce s detaily (oprava, kdysi už to tam bylo)
+           - Zobrazení všech dostupných jazykù v combu na výbìr jazyka stránek (podle jazykù nalezených v csv souboru)
+           - Možnost skrytí ID, narození a úmrtí v seznamech osob
+           - Možnost zobrazení krátkého popisu v seznamech souborù (napø seznam fotografií)
+
+Verze 1.2.0.4:
+21.6.2008  - Opraven problém pádu verze 1.2.0.3 nastávající pøi prázdném pøíjmení i rodném pøíjmení u osoby (+ještì další pøedpoklady)
+           - Lokalizace okna procesu (oprava èeských znakù)
+
+Verze 1.2.0.3:
+16.6.2008  - Druhé jméno (SecondName) zobrazeno ve formátu "Pøíjmení (Rodné pøíjmení)" v pøípadì že vlastnost "Zobrazit rodná pøíjmení" je vypnuta.
+
+Verze 1.2.0.1:
+27.4.2008  - Oprava tøídìní podle abecedy.
+           - Možnost výbìru vyhledávaèe pro mapy.
+           - Reorganizace a zpøehlednìní okna s nastavením.
+
+Verze 1.1:
+20.4.2008  - Oprava hierarchického zobrazení.
+           - Zobrazování skrytých osob - bez údajù.
+           - Zvýraznìní hlavní osoby v seznamech + volba hlavní osoby v oknì nastavení. 
+           - Volba locale v oknì nastavení.
+14.4.2008  - Možnost výbìru jazyka pro generované stránky - cz, en, sk
+6.4.2008   - Drobné úpravy: odstranìní pøebyteèných prázdných závorek u míst a povolání
+           - opravena chyba èíslování souborù partnerství (pøi nìkolikanásobném generování)
+           - dodìlána možnost nastavit vlastní názvy souborù v konfiguraèním souboru
+           - sjednocení css tøíd a html pro obì šablony (témìø neviditelná, ale pro další vývoj a pøidávání nových funkcí nezbytná zmìna).
+23.3.2008  - Kulaté okraje pro osoby ženského pohlaví ve stromeèku.
+           - Opraven problém se zobrazováním fotografií hlav u osob s ID>1000.
+           - Odstranìno skrolování sourozencù, partnerù a potomkù na stránce osoby.
+2.3.2008   - Volitelné zobrazování ID.
+           - Podpora externì pøipojených obrázkù s hlavami.
+           - Zmenšování fotek a obrázkù s hlavami na požadovanou velikost + vytváøení malých náhledù.
+           - Oprava problému s vícenásobným zobrazením abecedy v seznamu osob.
+17.2.2008  - Odkazy na seznam fotografií (souborù èi dokumentù) zobrazeny pouze pokud není stránka prázdná.
+           - Kontrola formátù data (oprava chyby formátu napø. "15.10.????").
+           - Oprava naèítání identifikátoru osoby.
+           - Možnost nastavení skrývání doplòujících textù.
+           - Opravena chyba zpùsobující zahlcení programu pøi generování.
+           - Drobné zmìny v designu stránek.
+           - Možnost pouštìt program pod linuxem (vyøešeny problémy s kódováním textù a lomítky v cestách).
+10.2.2008  - Podpora skupin osob v oknì nastavení
+           - Nejstarší a nejmladší na stránce se statistikou
+           - Vyhledávací formuláø na stránce s abecedním seznamem osob
+4.2.2008   - Oprava: zpìtná lomítka v url nahrazena za normální lomítka 
+3.2.2008   - Stránka se seznamem fotografií (souborù a osobních dokladù)
+           - Zpracovávání dat narození a úmrtí - zobrzení délky života
+           - Zobrazování progress okna pøi generování
+           - Spouštìní aplikace pøes Ancestry2html.exe
+27.1.2008  - Stránka s detaily souboru a osobního dokumentu, skrývání údajù o svatbì, styl stránek upraven pro tisk
+20.1.2008  - Stránka se seznamem míst; vyøešeno špatné zobrazení okna pøi nestandardním dpi v systému
+16.1.2008  - Nastavení skrývání hlav; pøidáno zobrazování fotografií; styl basic upraven pro správné zobrazení ve všech prohlížeèích
+12.1.2008  - Okno se základním nastavním èásteènì funkèní
+6.1.2008   - Nové styly vycházející z pùvodního TreeView, html stránky vyèištìny (kvùli validitì html kódu)
+30.12.2007 - zpracovávání parametrù v css souborech - použit soubor Templates.properties pro definování uživatelských promìnných
+           - 2 nové html styly
+           - stránka index s rozcestníkem na seznamy osob, stránka s hierarchickým seznamem osob
+           - nový jednoduchý bat soubor pro všechny styly
+28.12.2007 - stránka s detaily partnerství (manželství), zobrazení malého stromu na stránce s detaily v základních pìti šablonách
+27.12.2007 - podpora rùzných kódování konfiguraèních souborù (tím vyøešen problém s èeštinou napø. v cestách)
+27.12.2007 - verze 1.1 - použit freemarker pro zpracovávání šablon; bohužel nekompatibilní s verzí 1.0.
+             Psaní šablon je teï daleko flexibilnìjší a nová funkcionalita programu pùjde pøidávat mnohonásobnì rychleji,
+             jelikož vìtšinu èasu zabralo integrování nových parametrù do èásti zpracovávání šablon. Slibuji, že další
+             zpìtnì nekompatibilní zmìna šablon již 100% nebude)
+22.12.2007 - bat soubory pøesunuty do složky bin, použito kódování UTF-8 v šablonách
+9.12.2007  - pøidán parametry pro nastavení vstupního a výstupního kódování souborù
+1.10.2007  - pøidány tagy pro zobrazení prarodièù
+           - vyøešen problém s písmenem "ch" (a jinými víceznakovými písmeny) v seznamu osob
+           - použitelné relativní cesty v parametrech i v konfiguraèním souboru (problém s èeštinou v cestách zatím NEVYØEŠEN)
+27.9.2007  - pøeskoèení souborù zaèínajících teèkou pøi kopírování složky s obrázky a css styly (napø ".svn", ".picassa")
+           - pøidána práce se skupinami (zobrazení pouze nìjakých / skrytí nìjakých)
+           - možnost zmìnit styl osoby až pro pìt daných skupin
+16.9.2007  - pøidáno nové nastavení skrytí nìkterých položek (narození, úmrtí, bydlištì, vzdìlání, povolání)
+             pro všechny/živé/nikoho
+           - pøidány nové položky k osobì (email, vyznání ...)
+           - manuál pro vytváøení vlastních šablon
+           - popisy v konfiguraèním souboru
+13.9.2007  - první verze

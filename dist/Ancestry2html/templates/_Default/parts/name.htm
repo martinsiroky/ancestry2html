@@ -1,0 +1,13 @@
+<#compress>
+<#assign usage=(usage!0)+1/>
+<span onmouseout="hide('name${usage}')" onmouseover="show('name${usage}')">
+	<table class="hidden tooltip ${inc_name_persone.female?string("tfemale","tmale")}" id="name${usage}">
+		<tr><td>${inc_name_persone.fullName}</td>
+		<#if inc_name_persone.head>
+			<td><img src="../imgs/minihlava${inc_name_persone.id}.jpg" class="head" alt="head"/></td>
+		</#if>
+		</tr>
+	</table>	
+
+	<a href="../${utils.personalFile(inc_name_persone.id)}">${inc_name_persone.name}<#if config.showIdInLists> (${inc_name_persone.ident})</#if></a></span>
+</#compress>

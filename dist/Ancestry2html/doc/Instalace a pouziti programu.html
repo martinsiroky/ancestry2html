@@ -1,0 +1,237 @@
+<h1>Ancestry2html - instalace a použití programu</h1>
+
+<h2>Obsah</h2>
+	<ul>
+		<li><a href="#zakladni">Základní popis programu</a></li>
+		<li><a href="#pozadavky">Požadavky</a></li>
+		<li><a href="#zmeny">Seznam zmìn</a></li>
+		<li><a href="#download">Download</a></li>
+		<li><a href="#napoveda">Nápovìda</a>
+			<ul>
+				<li><a href="#instalace">Obsah instalaèního balíèku</a></li>
+				<li><a href="#spusteni">Spuštìní aplikace</a></li>
+				<li><a href="#nastaveni">Nastavení aplikace</a></li>
+				<li><a href="#soukromi">Zásady ochrany osobních údajù</a></li>
+				<li><a href="#konfigurak">Nastavení pøístupná pøes konfiguraèní soubory</a></li>
+			</ul>
+		</li>
+	</ul>
+
+<h2><a name="zakladni"></a>Základní popis programu</h2>
+<p>
+	Program slouží k vytváøení html stránek pro zobrazování stromu rodokmenu. Obsahuje 2 pøedpøipravené šablony (z nichž každá z nich má 8 barevných variant). Šablony si mùže uživatel jednoduše doupravit, pøípadnì vytvoøit zcela nové (postaèí pouze znalost html a css). Pùvodní cíl programu byl, aby si každý uživatel mohl šablony upravit a tím vygerované stránky s rodokmenem jednoduše zaèlenit do designu svých stránek. 
+	Praktickou ukázku použití na rodokmenu Karla IV. naleznete <a href="http://sirsi.wz.cz/data/karel/index.htm" target="_blank">zde</a> pøípadnì na obrázku níže.
+	Jak mùžou vypadat vygenerované stránky pokud si šablony mírnì poupravíte (aby zapadly do vašeho designu stránek) se mùžete podívat na <a href="http://sirsi.wz.cz/rodokmen/index.php">mém vlastním rodokmenu</a>.
+</p>
+<a class="thickbox" title="Použití programu na rodokmenu Karla IV." href="http://sirsi.wz.cz/imgs/gallery/programs/ancestry/photos/karel.jpg" rel="ancestry">
+	<img vspace="5" hspace="5" border="0" align="bottom" title="Použití programu na rodokmenu Karla IV." alt="karelIV" src="imgs/karel.jpg"/>
+</a>
+
+
+<p>
+Pokud pøi zkoušení programu objevíte nìjaký problém, pøípadnì máte-li nìjaký námìt, co by se vám v programu líbilo, mùžete využít speciální <a href="http://rodokmen.webzdarma.cz/forum/viewforum.php?f=22" target="_blank">fórum</a> pøímo na stránkách Ancestry. Budu se snažit vaše námìty do programu zakomponovat.
+	<br class="clear"/>
+</p>
+ 
+<h2><a name="pozadavky"></a>Požadavky</h2>
+	<ul>
+		<li>Vytvoøený rodokmen ve free programu <a href="http://rodokmen.webzdarma.cz/" target="_blank" title="Rodokmen">Ancestry</a>.</li>
+		<li>Nainstalovaná java - minimálnì JRE 6.0 (pro stažení kliknìte <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">zde</a> a následnì na odkaz "Download" u nadpisu "Java&nbsp;Runtime&nbsp;Environment&nbsp;(JRE)&nbsp;6&nbsp;Update&nbsp;#" - kde # je èíslo poslední podverze).</li>
+	</ul>
+
+<h2><a name="zmeny"></a>Seznam zmìn</h2>
+			<ul>
+				<li><span class="date">31.1.2009</span>:&nbsp;Verze 1.3.3: Seznam fotografií na stránkách partnerství; Hlavní osoba je standardnì "Aktivní" osoba v Ancestry; Doladìno øazení dìtí na stránkách partnerství; Udìláno øazení fotografií podle roku;
+Vyøešen problém nastavení hlavní osoby v hierarchickém seznamu osob (který se objevil po verzi 1.3.2); Pøidáno tlaèítko na zjištìní nové verze.</li><li><span class="date">20.1.2009</span>:&nbsp;Verze 1.3.2.1: Oprava problému s øazením ? až za Ž. Oprava funkce volení hlavní opsoby, která byla v 1.3.2 poškozena.</li><li><span class="date">18.1.2009</span>:&nbsp;Verze 1.3.2: Oprava problému se spodním odsazením fotky osoby v IE 6+7; Oprava špatného levého odsazení bunìk ve stylu TreeView; Odstranìn chybný oddìlovaè tisícù v letopoètech; Osoby s neznámým pøíjmením pøesunuty na konec seznamu osob;</li><li><span class="date">04.1.2009</span>:&nbsp;Verze 1.3.1.1: Tøídìní sourozencù nefungovalo v seznamu sourozencù v šablonì Basic (fungovalo pouze ve stromeèku).
+Aktualizován slovenský pøeklad html stránek.</li><li><span class="date">03.1.2009</span>:&nbsp;Verze 1.3.1: Použití knihovny jQuery; Hledání osob pøidáno i na hierarchický seznam; Øazení dìtí a sourozencù podle data narození + partneøi øazeni hierarchicky; Drobná oprava zobrazování spojnic bunìk</li><li><span class="date">29.12.2008</span>:&nbsp;Verze 1.3.0.1: Opraven problém pøi zmìnì výstupní složky a následném naètení nastavení okna.</li><li><span class="date">28.12.2008</span>:&nbsp;Verze 1.3.0: Automatické zavírání okna po vygenerování; Automatické otevøení prohlížeèe po vygenerování; Volba jazyka okna; Vylepšení zobrazování progressbaru; Pøíprava pro naèítání rodu v UTF-8; Kontrola nové verze na webu</li><li><span class="date">06.12.2008</span>:&nbsp;Verze 1.2.0.9b: Skrytí skrytých osob v cestì od aktuální osoby k hlavní osobì;
+Negenerování souborù s detaily partnerství skrytých osob</li><li><span class="date">09.11.2008</span>:&nbsp;Verze 1.2.0.9: Ukládání a mazání vlastního profilu soukromí; Zobrazení vztahu mezi hlavní osobou a vybranou osobou na stránce detailù; Uložení nastavení pøímo do výstupní složky a jeho naètení pøi zmìnì výstupní složky.</li><li><span class="date">01.11.2008</span>:&nbsp;<a href="http://sirsi.wz.cz/rodokmen/index.php">Mùj rodokmen</a>: Nejedná se pøímo o zmìnu v programu, ale o ukázku jeho použití na mém vlastním rodokmenu a zaèlenìní vygenerovaných stránek do designu mého webu. Úprava šablon spoèívala víceménì pouze ve výmìnì pùvodní hlavièky a patièky.</li><li><span class="date">24.8.2008</span>:&nbsp;Verze 1.2.0.8: Ètyønásobné zrychlení generování (problém s logováním vyøešen).</li>				<li><span class="date">3.8.2008</span>:&nbsp;Verze 1.2.0.7 - Oprava lomítek v odkazech na jazykové verze stránek.</li>
+				<li><span class="date">1.8.2008</span>:&nbsp;Verze 1.2.0.6 - Generování vícejazyèných stránek s možností pøepínání jazykù na stránkách a se sdílenými doplòujícími soubory a fotografiemi pro všechny jazykové verze.</li>
+				<li><span class="date">27.7.2008</span>:&nbsp;Verze 1.2.0.5 - Zobrazeno upozornìní o použití pøíjmení místo rodných pøíjmení na stránkách. Zobrazení titulù na stránce s detaily (oprava, kdysi už to tam bylo). Možnost skrytí ID, narození a úmrtí v seznamech osob. Možnost zobrazení krátkého popisu v seznamech souborù (napø seznam fotografií)</li>
+				<li><span class="date">21.6.2008</span>:&nbsp;Verze 1.2.0.4 - Opraven problém pádu verze 1.2.0.3 nastávající pøi prázdném pøíjmení i rodném pøíjmení u osoby a dalších podmínkách. Lokalizace okna procesu (oprava èeských znakù).</li>
+				<li><span class="date">16.6.2008</span>:&nbsp;Verze 1.2.0.3 - Zobrazování rodného pøíjmení v závorce za aktuálním pøíjmením pøi nenastavené volbì "Zobrazit rodná pøíjmení místo pøíjmení".</li>
+				<li><span class="date">27.4.2008</span>:&nbsp;Verze 1.2.0.1 - Oprava tøídìní podle abecedy. Možnost výbìru vyhledávaèe pro mapy. Reorganizace a zpøehlednìní okna s nastavením.</li>
+				<li><span class="date">20.4.2008</span>:&nbsp;Dùležitá oprava hierarchického zobrazení - pokud se døíve stalo, že skryté osoby jakoby rozdìlily celý strom na dvì samostatné nepropojené èásti, pak osoby z jedné z èástí se ocitly mimo hierarchický seznam. S touto zmìnou souvisí i to, že osoby, které jsou skryté se ve výpisech (tøeba ve stromì) objeví, ale nemají vyplnìný žádný údaj. Dále se v seznamech osob zvýrazòuje hlavní osoba - tu je již možno zvolit pøímo v oknì nastavení. Dále je možno v oknì zvolit i použité locale - podle nìj se øídí napøíklad tøídìní osob podle abecedy, èi první písmeno jména (napø. 'ch' se bere v potaz pouze pøi nastaveném locale pro èeštinu)</li>
+				<li><span class="date">14.4.2008</span>:&nbsp;Podpora více jazykù - èeština, angliètina a slovenština. Skloòování množných èísel - napø: 1 dítì, 2 dìti, 5 dìtí.</li>
+				<li><span class="date">6.4.2008</span>:&nbsp;Zejména rozšíøena nápovìda. Drobné úpravy: odstranìní pøebyteèných prázdných závorek u míst a povolání; opravena chyba èíslování souborù partnerství (pøi nìkolikanásobném generování); dodìlána možnost nastavit vlastní názvy souborù v konfiguraèním souboru; sjednocení css tøíd a html pro obì šablony (témìø neviditelná, ale pro další vývoj a pøidávání nových funkcí nezbytná zmìna).</li>
+				<li><span class="date">23.3.2008</span>:&nbsp;Kulaté okraje pro osoby ženského pohlaví ve stromeèku. Opraven problém se zobrazováním fotografií hlav u osob s ID&gt;1000. Odstranìno skrolování sourozencù, partnerù a potomkù na stránce osoby.</li>
+				<li><span class="date">2.3.2008</span>:&nbsp;Volitelné zobrazování ID. Podpora externì pøipojených obrázkù s hlavami. Zmenšování fotek a obrázkù s hlavami na požadovanou velikost + vytváøení malých náhledù. Oprava problému s vícenásobným zobrazením abecedy v seznamu osob.</li>
+				<li><span class="date">17.2.2008</span>:&nbsp;Odkazy na seznam fotografií (souborù èi dokumentù) zobrazeny pouze pokud není stránka prázdná. Kontrola formátù data (oprava chyby formátu napø. "15.10.????"). Oprava naèítání identifikátoru osoby. Možnost nastavení skrývání doplòujících textù. Opravena chyba zpùsobující zahlcení programu pøi generování. Drobné zmìny v designu stránek. Možnost pouštìt program pod linuxem (vyøešeny problémy s kódováním textù a lomítky v cestách).</li>
+				<li><span class="date">10.2.2008</span>:&nbsp;Podpora skupin osob v oknì nastavení. Nejstarší a nejmladší na stránce se statistikou. Vyhledávací formuláø na stránce s abecedním seznamem osob</li>
+				<li><span class="date">4.2.2008</span>:&nbsp;Opravena chyba se zpìtnými lomítky v url.</li>
+				<li><span class="date">3.2.2008</span>:&nbsp;Stránka se seznamem fotografií (souborù a osobních dokladù). Zpracovávání dat narození a úmrtí - zobrzení délky života. Zobrazování progress okna pøi generování. Spouštìní aplikace pøes Ancestry2html.exe</li>
+				<li><span class="date">27.1.2008</span>:&nbsp;Stránka s detaily souboru a osobním dokumentu. Skrývání dat o svatbì. Vylepšena možnost tisku stránek.</li>
+				<li><span class="date">20.1.2008</span>:&nbsp;Stránka se seznamem míst. Styl treeview vyèištìn pro správné zobrazení IE. Opraven problém se zobrazováním okna pøi nestandardním nastavení DPI v systému.</li>
+				<li><span class="date">16.1.2008</span>:&nbsp;Možnost skrývání hlav. Pøidáno zobrazování fotografií. Styl basic vyèištìn pro správné zobrazení IE.</li>
+				<li><span class="date">12.1.2008</span>:&nbsp;Okno pro snadné nastavování generátoru.</li>
+				<li><span class="date">6.1.2008</span>:&nbsp;Nové styly TreeView (ve všech 8 barvách jako Basic styl). Provedena validace html.</li>
+				<li><span class="date">31.12.2007</span>:&nbsp;Vyøešen problém s èeštinou v parametrech (napø. cesta k rod souboru) - pøidán parametr chcp 1250 do bat souboru</li>
+				<li><span class="date">30.12.2007</span>:&nbsp;Možnost zpracovávání parametrù v css souborech - použit soubor Templates.properties pro definování uživatelských promìnných; 2 nové html styly; stránka index s rozcestníkem na seznamy osob, stránka s hierarchickým seznamem osob; nový jednoduchý bat soubor pro všechny styly</li>
+				<li><span class="date">28.12.2007</span>:&nbsp;Pøidána stránka s detaily partnerství (manželství), zobrazení malého stromu na stránce s detaily v základních pìti šablonách</li>
+				<li><span class="date">27.12.2007</span>:&nbsp;Zmìna zpùsobu psaní šablon - bohužel nekompatibilní s verzí 1.0. Vyhodil jsem 3/4 programu, který øešil zpracovávání šablon a použil již hotovou super knihovnu pro práci s šablonami - <a href="http://freemarker.sourceforge.net/docs/" target="_blank">freemarker</a>. Psaní šablon je teï daleko flexibilnìjší a nová funkcionalita programu pùjde pøidávat mnohonásobnì rychleji, jelikož vìtšinu èasu zabralo integrování nových parametrù do èásti zpracovávání šablon. Slibuji, že další zpìtnì nekompatibilní zmìna šablon již 100% nebude)</li>
+				<li><span class="date">9.12.2007</span>:&nbsp;Podpora rùzných kódovaní pro vstupní a výstupní soubory.</li>
+			</ul>
+
+<h2><a name="download"></a>Download</h2>
+<p>
+Nejnovìjší verzi stáhnete na <a href="http://sirsi.wz.cz/ancestry2html.php#download">http://sirsi.wz.cz</a>
+</p>
+
+<h2><a name="napoveda"></a><a name="instalace"></a>Nápovìda - Obsah instalaèního balíèku</h2>
+<p>
+	Stažený zip mùžete rozbalit kdekoli, není nutné rozbalovat ho do složky s Ancestry. Pokud ovšem generátor chcete spouštìt pøímo z Ancestry rozblate si jej do složky "TODO". Jednotlivé podsložky obsahují následující soubory:
+</p>
+	<ul>
+		<li>bin - spouštìcí soubory pro windows a linux</li>
+		<li>doc - obsahuje tuto nápovìdu, dále soubor s popisem parametrù použitelných v konfiguraèních souborech + soubor s popisem promìnných, které jsou k dispozici v jednotlivých šablonách</li>
+		<li>etc - konfiguraèní soubory programu (seznam a nastavení profilù soukromí, seznam šablon)</li>
+		<li>lang - pøeklady textù použitých v programu</li>
+		<li>lib - knihovny (jary) používané programem</li>
+		<li>templates - html šablony
+			<ul>
+				<li>_Basic a _TreeView - dvì základní sady html souborù, na které se odkazují jednotlivé šablony</li>
+				<li>CervenyPsaciStroj_Basic, CervenyPsaciStroj_TreeView atd. - složky s šablonami obsahující soubory s nastavením barev a ostatních parametrù programu a dále náhled stylu zobrazovaný v programu</li>
+			</ul>
+		</li>
+	</ul>
+<p>
+	Dále se zde nachází soubor version-cz.txt, ve kterém se mùžete podívat na historii zmìn.
+</p>
+
+<h2><a name="spusteni"></a>Nápovìda - Spuštìní aplikace</h2>
+<p>
+	Pro spuštìní programu použijte Ancestry2html.exe ve složce bin (pokud program spouštíte pod windows, na linuxu použijte Ancestry2html.sh). Pokud vše probìhne jak má, objeví se hlavní okno s nastavením programu - víceménì podobné tomu na obrázku. Toto okno je také možno vyvolat pøímo z programu Ancestry.
+</p>
+<img vspace="5" hspace="5" title="Okno s nastavením programu" alt="náhled" src="imgs/ancestry2html.jpg"/>
+
+<h2><a name="nastaveni"></a>Nápovìda - Nastavení aplikace</h2>
+<p>
+	Okno s nastavením obsahuje nìkolik záložek (panelù - oušek). Pøi bìžném generování je vìtšinou nutno mìnit pouze parametry na prvním z nich, ostatní staèí nastavit pøi prvním spuštìní programu.
+</p>
+
+<h3>Základní nastavení</h3>
+	<ol>
+		<li>Jako první je samozøejmì nutné vybrat soubor rod, z kterého se budou brát data pro generování (tento krok není nutný pøi automatickém spouštìní pøímo z Ancestry - soubor je již pøedvyplnìn na aktuálnì otevøený rodokmen).</li>
+		<li>Dále si vyberte šablonu. Pøi výbìru šablony se v dolní èásti zobrazí ukázka vzhledu stránky (konkrétnì ukázka stránky s detailem osoby).</li>
+		<li class="notImportant">Do budoucna je v plánu možnost stažení dalších šablon samostatnì z internetu, pro toto bude sloužit tlaèítko "Pøidat další šablonu" (pøípadnì také, pokud jste zdatnìjší v html a css a rozhodnete se vytvoøit si vlastní šablonu). Po vybrání složky s novou šablonou se tato pøidá na konec vyskakovacího seznamu šablon.</li>
+		<li>Další políèko obsahuje cestu k adresáøi, do kterého chcete stránky vygenerovat (pozor - zatím se existující soubory pøepisují automaticky).</li>
+		<li>Dùležitou vlastností je Profil. Ten slouží k hromadnému nastavení dalších prvkù na této záložce. Záleží zda chcete stránky vygenerovat a poté vystavit na webu (a zneviditelnit nìkteré citlivé údaje - viz <a href="#soukromi">Zásady ochrany osobních údajù</a>), èi poskytnout na CD tøeba svým pøíbuzným (a nechat všechny údaje pøístupné).
+			<ul>
+				<li>Po nastavení profilu soukromí si mùžete v pravé èásti panelu zmìnit nastavení pro jednotlivé informace. Na výbìr máte 3 možnosti: buï nezobrazit daný údaj u žádné osoby, nebo u všech, nebo pouze u nežijích osob (u kterých již nejsou nìkteré osobní informace zneužitelné).</li>
+				<li>Zmìníte-li nìkteré položky profilu soukromí, mùžete si toto nastevení uložit do vlastního profilu soukromí a pøíštì jednoduše vybrat tento ze seznamu. Aplikace si v opaèném pøípadì nezapamatuje tuto zmìnu (pamatuje si automaticky pouze naposledy zvolený profil, nikoli zmìny v nìm provedené)</li>
+				<li>Nevyhovuje-li vám vámi definovaný profil, mùžete jej snadno odstranit tlaèítkem "Smazat vybraný profil".</li>
+			</ul>
+		</li>
+		<li>Nyní již mùžete kliknou na tlaèítko "Generovat html!". Další nastavení mùžete nechat na výchozích hodnotách.</li>
+		<li>Další ovládací prvky na první záložce neslouží pro samotné nastavení html výstupu, ale k nastavení chování samotné aplikace Ancestry2html.
+			<ul>
+				<li>Automatická kontrola nových verzí programu - lze nastavit zda kontrolovat 1x dennì, 1x týdnì, 1x mìsíènì, nebo nikdy. Program si zjistí èíslo verze nabízené na webu a porovná ho s èíslem verze, kterou používáte a pøípadnì nabídne novou verzi ke stažení. Tuto kontrolu lze provést i manuálnì kdykoli tlaèítkem.</li>
+				<li>Zejména pokud program pouštíte pøímo z Ancestry využijete možnost nastavit automatické zavírání okna po vygenerování (a mùžete pokraèovat dále v práci v Ancestry)</li>
+				<li>Další možností je volba automatického spuštìní prohlížeèe po vygenerování stránek, kde si tak mùžete rovnou prohlédnout výsledek.</li>
+				<li>Poslední volba je možnost zmìny jazyka okna (nemá vliv na vygenerované stránky - to se nastavuje jinde).</li>
+			</ul>
+		</li>
+	</ol>
+
+<h3>Rozšíøené nastavení</h3>
+	<ol>
+		<li>Na druhé záložce máte možnost zvolit, zda zobrazovat u každé osoby identifikátor (kdekoli se osoba vyskytuje na stránkách) pro lepší identifikaci. Toto je vhodné, zejména máte-li vìtší rodokmen s osobami stejného jména i pøíjmení.</li>
+		<li>Další volbou je možnost zobrazovat osoby ve formátu "Pøíjmení Jméno" místo standardního "RodnéPøíjmení Jméno" (což je urèitì pøehlednìjší - proto doporuèuji tuto volbu nechat zaškrtnutou)</li>
+		<li>Pro úèely zobrazení hierarchického seznamu osob je možno urèit hlavní osobu (pomocí jejího identifikátoru). Generace se poté budou poèítat od této osoby. Nevyplníte-li tuto položku, generátor bude za hlavní osobu považovat aktuálnì/naposledy (v dobì uložení rodu) zobrazenou osobu v Ancestry.</li>
+		<li>Další je možnost vygenerování vícejazyèných stránek. V seznamu si mùžete vybrat jeden èi více (s pøidržením Ctrl) jazykù. Stránky jsou poté vygenerovány pro každý z vybraných jazykù (obrázky apod. sdílí všechny jazykové verze stránek spolu). Na každé stránce poté pøibyde pøepínaè na zobrazení v jiném jazyce.</li>
+		<li>S pøedchozí volbou souvisí další možnost volby výchozího jazyka. To znamená, který jazyk se má zobrazit pøi zobrazení hlavní stránky (index.html)</li>
+		<li>Vynechání nìkterých osob z generování je možné vyplnìním položky "Povolené skupiny" a "Zakázané skupiny". Do obou políèek mùžete vyplnit více názvù skupin oddìlených støedníkem. Nejprve se bere v potaz seznam povolených skupin, poté seznam zakázaných. Uvedete-li jen seznam povolených, osoby nepatøící do žádné z tìchto skupin se nezobrazí (v html bude uvedeno, že data osoby jsou skryta, ale bude vidìt, že nìjaká taková osoba existuje). Uvedete-li jen seznam zakázaných, osoby z tìchto skupin budou skryty (ostatní se zobrazí). Pøi kombinaci obou seznamù se zobrazí všechny patøící do libovolné skupiny z povolených, nepatøící do žádné ze zakázaných skupin.</li>
+		<li>Zaškrtávátko "Blokovat i soubory zakázaných" urèuje míru zákazu zakázaných osob. Je-li odškrtnuto, do html se vygenerují i dokumenty (napø. fotografie), které jsou pøiøazeny k blokované osobì (za pøedpokladu, že jsou pøiøazeny alespoò k jedné povolené osobì). V tomto pøípadì je samozøejmì v html vyjmuta blokovaná osoba ze seznamu osob pøiøazených k dokumentu. Je-li zaškrtnuté, staèí aby jedna pøiøazená osoba byla blokována a dokument se vùbec v html neobjeví.</li>
+	</ol>
+
+<h2><a name="soukromi"></a>Zásady ochrany osobních údajù</h2>
+<p>
+	Pokud chcete vygenerované stránky vystavit na webu, nebo i jenom poskytnout na CD svým známým èi pøíbuzným, mìjte na pamìti ochranu soukromých údajù. Vyjádøení odborníka z Úøadu pro ochranu osobních údajù si mùžete pøeèít zde (platnost zákonù k 19.2.2009, dìkuji Ing. Lubomíru Novému za vznesený dotaz a poskytnutí tohoto vyjádøení):
+</p>
+<p>
+<i>"Zákon è. 101/2000 Sb., o ochranì osobních údajù a o zmìnì nìkterých zákonù, ve znìní pozdìjších pøedpisù (dále jen „zákon o ochranì osobních údajù„), se podle ustanovení § 3 odst. 3 nevztahuje na zpracování osobních údajù, které provádí fyzická osoba výluènì pro osobní potøebu. Zveøejòování rodokmenu na internetu už mùže být posouzeno jako pøekroèení podmínek pro tuto výjimku. Osoba, která takto zpracovává osobní údaje v datovém souboru, kterým rodokmen zveøejòovaný na internetu za úèelem jeho doplòování o další údaje je, se tak dostává do postavení správce osobních údajù se všemi povinnostmi ze zákona o ochranì osobních údajù vyplývajícími.</i>
+</p>
+<p>
+<i>Povinnost získat souhlas subjektu údajù je zákonem o ochranì osobních údajù vztažena toliko k žijícím osobám, nikoli k blízkým osobám osob zemøelých. Uvedení osobních údajù zemøelých osob ve zveøejòovaném rodokmenu bez souhlasu blízkých osob zemøelých proto není porušením zákona o ochranì osobních údajù. Blízkým osobám zemøelých však pøísluší uplatòovat právo na ochranu jejich osobnosti podle § 15 obèanského zákoníku.
+</i>
+</p>
+<p>
+<i>
+Pokud jde o údaje o žijících osobách, je k jejich zveøejòování v rodokmenu tøeba získat jejich souhlas. I údaje v rozsahu: jméno, pøíjmení, jsou údaji o urèeném a urèitelném subjektu údajù, které vzhledem k rodinným vazbám v rodokmenu uvádìným, mohou být v nìkterých pøípadech posouzeny i jako citlivé údaje ve smyslu § 4 písm. b) zákona o ochranì osobních údajù, vypovídající o národnostním nebo etnickém pùvodu subjektu údajù, zejména pokud jde o národnostní nebo etnické menšiny. Neoprávnìné zveøejòování osobních údajù v rozporu s èlánkem 10 Listiny základních práv a svobod mùže být pøedmìtem žaloby na ochranu osobnosti podle obèanského zákoníku."</i>
+</p>
+
+<h2><a name="konfigurak"></a>Nápovìda - nastavení pøístupná pøes konfiguraèní soubory</h2>
+<p>
+	Každá grafická šablona obsahuje 2 konfiguraèní soubory: jeden pojmenovaný <i>Template.properties</i> obsahuje nastavení barev písma, pozadí a podobnì.
+	Druhý soubor se jmenuje <i>JMENO_Ancestry2html.properties</i> (napø. <i>Basic_Ancestry2html.properties</i>) a obsahuje mnoho voleb pro generování, z nichž nìkteré lze pøenastavit pøímo v grafickém oknì.<br/>
+	Zde je výèet vlastností (šedé vlastnosti nenastavujte, pokud používáte klikací okno, budou ignorovány), zmìna nìkterých parametrù mùže zpùsobit nefunkènost programu - mìòte pouze pokud víte co dìláte :-) ).<br/><br/>
+	Základní vlastnosti:
+</p>
+	<ul>
+		<li>propertiesEncoding=UTF-8<br/>kódování použité v konfiguraèních souborech (vèetnì tohoto) (necháte-li prázdné, použije se standardní systémové kódování)</li>
+		<li class="notImportant">file=<br/>cesta k rod souboru, který chcete použít ke generování</li>
+		<li>templatesDir=../_Basic<br/>relativní cesta k html souborùm šablony (není-li uvedeno, použije se složka, ve které je tento konfiguraèní soubor)</li>
+		<li>inputImgDir=img<br/>relativní cesta ke složce s obrázky (není-li uvedeno, použije se podsložka "img" složky s html šablonami)</li>
+		<li>inputCssDir=<br/>relativní cesta ke složce s css styly (není-li uvedeno, použije se podsložka "css" složky s html šablonami)</li>
+		<li>templateEncoding=UTF-8<br/>kódování souborù šablon (necháte-li prázdné, použije se standardní systémové kódování)</li>
+		<li>templatePropertiesFile=Template.properties<br/>relativní cesta k souboru s nastavením grafických parametrù stylu (barvièky, fonty a tak)</li>
+		<li class="notImportant">outputDir=<br/>výstupní složka pro generované soubory</li>
+		<li>outputImgDir=<br/>výstupní složka pro obrázky (není-li uvedeno, použije se podsložka "img" výstupní složky)</li>
+		<li>outputCssDir=<br/>výstupní složka pro css styly (není-li uvedeno, použije se podsložka "css" výstupní složky)</li>
+		<li>outputEncoding=UTF-8<br/>kódování výstupních html souborù (necháte-li prázdné, použije se standardní systémové kódování)</li>
+	</ul>
+<p>
+	Názvy výstupních souborù (pøi zmìnì již existujících šablon je nutno dodržet stejné zanoøení souborù v podadresáøích jako bylo pùvodnì - tzn. je-li <i>personalFileName=person/person${id}.htm</i>, nelze zmìnit na <i>personalFileName=osoba${id}.htm</i> ale tøeba <i>personalFileName=nìjakáSložka/osoba${id}.htm</i> - tzn. musí být v jedné podsložce. Je to kvùli relativním odkazùm na css a img soubory a na ostatní html soubory):
+</p>
+	<ul>
+		<li>indexFileName=index.htm<br/>Název startovní stránky</li>
+		<li>personalFileName=person/person${id}.htm<br/>Název souborù s detaily osoby (musí obsahovat ${id} - bude nahrazeno za konkrétní id osoby)</li>
+		<li>partnershipFileName=partnership/partnership${id}.htm<br/>Název souborù s detaily partnerství (musí obsahovat ${id} - bude nahrazeno za konkrétní id partnerství)</li>
+		<li>listFileName=lists/list.htm<br/>Název souboru se seznamem osob</li>
+		<li>listHierarchyFileName=lists/listHierarchy.htm<br/>Název souboru s hierarchickým seznamem osob</li>
+		<li>documentFileName=documents/document${id}.htm<br/>Název souboru s detaily o dokumentu (musí obsahovat ${id} - bude nahrazeno za konkrétní id dokumentu)</li>
+		<li>documentsFileName=lists/documents.htm<br/>Název souboru se seznamem dokumentù</li>
+		<li>credentialFileName=credentials/credential${id}.htm<br/>Název souboru s detaily osobního dokumentu (musí obsahovat ${id} - bude nahrazeno za konkrétní id dokumentu)</li>
+		<li>credentialsFileName=lists/credentials.htm<br/>Název souboru se seznamem osobních dokumentù</li>
+		<li>photoFileName=photos/photo${id}.htm<br/>Název souboru s detaily fotografie (musí obsahovat ${id} - bude nahrazeno za konkrétní id fotografie)</li>
+		<li>photosFileName=lists/photos.htm<br/>Název souboru se seznamem fotografií</li>
+		<li>statisticsFileName=lists/statistics.htm<br/>Název souboru se statistikou</li>
+		<li>placesListFileName=lists/places.htm<br/>Název souboru se seznamem míst</li> 
+	</ul>
+<p>
+	Nastavení soukromí:
+</p>
+	<ul>
+		<li class="notImportant">hideBirthData=no<br/>skrýt data narození (datum a místo) osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideDeathData=no<br/>skrýt data úmrtí (datum a místo) osoby. Možné hodnoty: no (nikdy)/all (vždy)</li>
+		<li class="notImportant">hideLivePlaces=no<br/>skrýt bydlištì osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideJobs=no<br/>skrýt povolání osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideEducation=no<br/>skrýt vzdìlání osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideContact=no<br/>skrýt emaily a telefony. Možné hodnoty: no (nikdy)/all (vždy)</li>
+		<li class="notImportant">hideWeb=no<br/>skrýt webové adresy. Možné hodnoty: no (nikdy)/all (vždy)</li>
+		<li class="notImportant">hideReligion=no<br/>skrýt všechny náboženké údaje. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideNationality=all<br/>skrýt národnost a státní pøíslušnost. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideUserDefined=no<br/>skrýt uživatelsky definované položky. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideRegistryInfo=no<br/>skrýt informace o matrikách. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hideHeads=no<br/>skrýt obrázky hlav. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+		<li class="notImportant">hidePhotos=no<br/>skrýt fotografie. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)</li>
+	</ul>
+<p>
+	Ostatní parametry:
+</p>
+	<ul>
+		<li>birthDeathSplitter=,&amp;nbsp;<br/>oddìlovaè mezi datem a místem (použito pro vlastnosti 'birth' a 'death')</li>
+		<li>fromToSplitter=&amp;nbsp;&amp;ndash;&amp;nbsp;<br/>oddìlovaè mezi od a do (použito pro vlastnost 'fromTo' u bydlištì, zamìstnání, vzdìlání ...)</li>
+		<li>toPrefix=do&amp;nbsp;<br/>oddìlovaè mezi od a do pokud datum od není vyplnìn (použito pro vlastnost 'fromTo' u bydlištì, zamìstnání, vzdìlání ...)</li>
+		<li class="notImportant">groupsOnly=<br/>filtr osob; pouze osoby náležející do tìchto skupin budou zobrazeny (jména oddìlená støedníkem). V pøípadì, že je prázdné, zobrazí všechny osoby.</li>
+		<li>groupsHide=<br/>filtr osob; osoby náležející do tìchto skupin budou skryty (jména oddìlená støedníkem). Standardnì prázdné</li>
+		<li>locale=cs_CZ<br/>jaké locale použít (použito napø. pro tøídìní osob v seznamu). V pøípadì, že není uvedeno, použije se systémové locale. Pøíklady: cs_CZ, en_GB, en_US</li>
+		<li>mainPersonId=0<br/>èíslo hlavní osoby - použito v hierarchickém seznamu pro urèení hlavní osoby</li>
+		<li class="notImportant">addressSplitter=,<br/>oddìlovaè použitý v adresách osob (napø. "Dlouhá 28, Hradec Králové, 500 02, Èeská republika" - oddìlovaè je èárka)</li>
+		<li class="notImportant">townInAddressPosition=2<br/>pozice mìsta (obce) v adrese bydlištì (napø. "Dlouhá 28, Hradec Králové, 500 02, Èeská republika" - pozice obce je 2)</li>
+		<li class="notImportant">townInBirthPosition=1<br/>pozice mìsta (obce) v záznamech: místo narození, místo úmrtí a místo pohøbení (napø. "Hradec Králové, porodnice" - pozice obce je 1)</li>
+		<li class="notImportant">useMaidenName=true<br/>zobrazit "rodné pøíjmení" a "køestní jméno" pro tag "name". Je-li false pak zobrazí "poslední pøíjmení" a "køestní jméno"</li>
+		<li>maxSizePhoto=800x600<br/>maximální velikost fotografií (vìtší fotografie budou zmenšeny); pokud chcete omezit jen jeden rozmìr, použijte místo druhého pomlèku (napø.: "-x600")</li>
+		<li>maxSizeMiniPhoto=-x150<br/>maximální velikost malého náhledu fotografie</li>
+		<li>maxSizeHead=150x200<br/>maximální velikost obrázku hlavy</li>
+		<li>maxSizeMiniHead=28x37<br/>maximální velikost obrázku hlavy použitého ve stromovém zobrazení</li>
+	</ul>

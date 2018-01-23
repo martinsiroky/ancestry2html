@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	
+	<appender name="debugAppender"
+		class="cz.sirsi.ancestry.core.tools.EachRunRollingAppender">
+		<param name="File" value="${user.home}/.ancestry2html/debug_" />
+		<param name="MaxBackupIndex" value="3"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d [%t] %c{1} - %l{1}: %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="infoAppender"
+		class="cz.sirsi.ancestry.core.tools.EachRunRollingAppender">
+		<param name="File" value="${user.home}/.ancestry2html/info_" />
+		<param name="MaxBackupIndex" value="3"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d [%t] %c{1} - %m%n" />
+		</layout>
+	</appender>
+	
+	<root>
+		<level value="FATAL"></level>
+		<appender-ref ref="debugAppender" />
+		<appender-ref ref="infoAppender" />
+	</root>
+</log4j:configuration>

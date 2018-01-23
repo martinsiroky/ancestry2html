@@ -1,0 +1,42 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+	 	<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<a href="../${utils.photosFile}">${msg('navigation.toListOfPhotos')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('photo.headline')}</h1>
+
+	<div id="block_0">
+		<div class="block aditional">
+			<#if ph.name??>${msg('photo.name')}:	<b>${ph.name}</b></#if>
+		</div>
+		<div class="block aditional">
+			<#if ph.year??>${msg('photo.year')}: ${ph.year}<br/></#if>
+			<#if ph.description??>${msg('photo.comment')}: ${ph.description}<br/></#if>
+			${msg('photo.assignedPeople')}: 
+			<#list ph.people as person>
+				<#assign inc_name_persone=person/>
+				<#include "parts/name.htm"/>
+				<#if person_has_next>, </#if>
+			</#list>
+		</div>
+		<div class="center">
+			<a href="javascript:history.back()">
+				<img class="photo" title="${ph.name}" src="../imgs/foto${ph.id}.jpg" alt="photo"/>
+			</a>
+		</div>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

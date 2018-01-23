@@ -1,0 +1,43 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<a href="../${utils.documentsFile}">${msg('navigation.toListOfDocuments')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('document.headline')}</h1>
+
+	<div id="block_0">
+		<div class="block aditional">
+			<#if doc.name??>${msg('document.name')}: <b>${doc.name}</b><br/></#if>
+			${msg('document.type')}: ${doc.extension}
+		</div>
+		<div class="block aditional">
+			<#if doc.year??>${msg('document.year')}: ${doc.year}<br/></#if>
+			<#if doc.description??>${msg('document.comment')}: ${doc.description}<br/></#if>
+	 	 	${msg('document.assignedPeople')}: 
+			<#list doc.people as person>
+				<#assign inc_name_persone=person/>
+				<#include "parts/name.htm"/>
+				<#if person_has_next>, </#if>
+			</#list>
+		</div>
+		<div class="canter">
+			<div class="document">
+				<a href="../imgs/document${doc.id}.${doc.extension}" >${msg('document.showDownload',doc.name,doc.extension)}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

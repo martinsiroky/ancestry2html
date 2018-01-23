@@ -1,0 +1,84 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<a href="../${utils.hierarchicalListFile}">${msg('navigation.toHierarchical')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('list.headline')}</h1>
+	
+	<div id="block_0">
+		<#assign mainPerson=utils.mainPerson />
+	
+		<script type="text/javascript">
+			array = new Array(<#list peopleList as person>'p${person.id}','${person.name?js_string}',</#list>'0');
+			count = ${peopleList?size};
+			window.document.styleSheets[2].disabled=true;
+		</script>	
+	
+		<#if !config.useMaidenName>
+			<p>
+				${msg('list.lastNamesInfo')}
+			</p>
+		</#if>
+	
+		<div class="searchInputs">${msg('list.searching')}:
+			<input onkeyup="filterPeople(array,count,true)" type="text" id="namesFilter"/>
+			<input id="search" style="display:none;" type="button" onclick="filterPeople(array,count,false)" value="${msg('list.search')}"/>
+			<input type="button" onclick="showAllPeople(array,count);$('#namesFilter').val('');" value="${msg('list.cancelSerchResult')}"/>
+		</div>
+	
+		<#--<a href="#" onclick="$('#compareOutputsBlock').slideToggle(1000);return false;">Porovnávání dvou rodokmenů</a>
+		<div class="searchInputs" id="compareOutputs">
+			<div id="compareOutputsBlock">
+				<div>
+					Zde nakopírujte seznam osob z jiné stránky:<br/>
+					<input class="text" type="text" id="otherNames"/><br/>
+					Odtud kopírujte seznam osob pro použití na jiné stránce:<br/>
+					<input class="text" readonly="readonly" id="namesForCheck" type="text" onclick="select()"
+					value="<#list peopleList as person>${person.id},${person.lastname!'?'},${person.maidenname!'?'},${person.firstname!'?'};</#list>"/><br/>
+					<input type="button" onclick="checkNames()" value="Porovnat"/>
+				</div>
+			</div>
+		</div>-->
+	
+		<h2 class="showInSearch"><a name="result"></a>${msg('list.searchResult')} <span id="resultCount">0</span></h2>
+	
+		<#list peopleList as person>
+			<#if utils.isNewLetter(person.name, firstLetter)>
+				<#if (person_index>0)></ul></#if>
+	
+				<div class="hideInSearch firstLetters">							
+					<#list firstLetters as letter>
+						<a class="letter l${letter?url?replace('%','x')}" href="#l${letter?url?replace('%','x')}">${letter}</a> &nbsp;
+					</#list>
+				</div>
+				<#assign firstLetter=utils.getFirstLetter(person.name)/>
+				<h2 class="firstLetter"><a name="l${firstLetter?url?replace('%','x')}"></a>${firstLetter}</h2><ul>
+					</#if>
+	
+			<#--if person.female><img class="symbol" src="imgs/female.png"></#if>
+			<#if person.male><img class="symbol" src="imgs/male.png"></#if-->
+	
+			<li id="p${person.id}"<#if (config.showMainPerson && mainPerson==person.ident)> class="mainPerson"</#if>>
+				<#assign inc_name_persone=person/>
+				<#include "parts/name.htm"/>
+				<#if (config.showBirthInLists && person.birth?length>0)>(* ${person.birth})</#if>
+				<#if (config.showDeathInLists &&person.death?length>0)>(&dagger; ${person.death})</#if>
+			</li>
+		</#list>
+		</ul>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

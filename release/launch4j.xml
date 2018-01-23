@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+	<jar>..\lib\Ancestry2html-{VERSION}.jar</jar>
+  <outfile>dist\Ancestry2html\bin\Ancestry2html.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>src\main\resources\icon.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.6.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>{MOD_VERSION}</fileVersion>
+    <txtFileVersion>{MOD_VERSION}</txtFileVersion>
+    <fileDescription>Program to generate html output from Ancestry</fileDescription>
+    <copyright>Opensource</copyright>
+    <productVersion>{MOD_VERSION}</productVersion>
+    <txtProductVersion>{MOD_VERSION}</txtProductVersion>
+    <productName>Ancestry2html</productName>
+    <companyName>Martin Široký - www.sirsi.wz.cz</companyName>
+    <internalName>Ancestry2html</internalName>
+    <originalFilename>Ancestry2html.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

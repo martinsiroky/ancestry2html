@@ -1,0 +1,20 @@
+<#compress> 
+<#if (date.id!=-1 && date.onlyDays>-1)>
+	<#if span?? && span==true>
+		<span title="${msg('stats.relevantToDate',g.today)}" class="hint">
+	</#if>
+	${text}<sup>*</sup>:
+	<#if span?? && span==true></span></#if>
+
+	<#if !notPerson?? || !notPerson>
+		<#assign person=utils.personForId(date.id)/>
+		<#assign inc_name_persone=person/>
+		<#include "name.htm"/> - 
+	</#if>
+
+	${event!""}
+	
+	<#if date.years??><#if date.months??>${msg('stats.years',date.years)}<#else>${msg('stats.yearsPlusMinus',date.years)}</#if></#if><#if date.months??><#if date.days??> ${msg('stats.months',date.months)}<#else> ${msg('stats.monthsPlusMinus',date.months)}</#if></#if><#if date.days??> ${msg('stats.days',date.days)} (${msg('stats.onlyDays',date.onlyDays)})</#if>
+	<br/>
+</#if>
+</#compress> 

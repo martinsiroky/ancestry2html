@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.5.906 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Ancestry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Version">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MajorVersion" type="xs:integer" />
+              <xs:element name="MinorVersion" type="xs:integer" />
+              <xs:element name="Release" type="xs:integer" />
+              <xs:element name="Build" type="xs:integer" />
+              <xs:element name="CanBeOpenedFrom">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="MajorVersion" type="xs:integer" />
+                    <xs:element name="MinorVersion" type="xs:integer" />
+                    <xs:element name="Release" type="xs:integer" />
+                    <xs:element name="Build" type="xs:integer" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="SaveDate" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="General">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string" />
+              <xs:element minOccurs="0" name="Author" type="xs:string" />
+              <xs:element minOccurs="0" name="Created" type="xs:string" />
+              <xs:element minOccurs="0" name="CoWorkers" type="xs:string" />
+              <xs:element name="UserDefined">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="User1" type="xs:string" />
+                    <xs:element name="User2" type="xs:string" />
+                    <xs:element name="User3" type="xs:string" />
+                    <xs:element name="User4" type="xs:string" />
+                    <xs:element name="User5" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="AdditionalInformation" type="textLines" />
+              <xs:element minOccurs="0" name="ActivePerson" type="personNumber" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Photos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Photo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IDNumber" type="xs:long" />
+                    <xs:element minOccurs="0" name="PathIfLinked" type="xs:string" />
+                    <xs:element minOccurs="0" name="Name" type="xs:string" />
+                    <xs:element minOccurs="0" name="Year" type="xs:string" />
+                    <xs:element minOccurs="0" name="Comment" type="textLines" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Documents">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Document">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IDNumber" type="xs:long" />
+                    <xs:element minOccurs="0" name="PathIfLinked" type="xs:string" />
+                    <xs:element minOccurs="0" name="Name" type="xs:string" />
+                    <xs:element minOccurs="0" name="Year" type="xs:string" />
+                    <xs:element minOccurs="0" name="Comment" type="textLines" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Files">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="File">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IDNumber" type="xs:long" />
+                    <xs:element minOccurs="0" name="PathIfLinked" type="xs:string" />
+                    <xs:element minOccurs="0" name="Name" type="xs:string" />
+                    <xs:element minOccurs="0" name="Year" type="xs:string" />
+                    <xs:element minOccurs="0" name="Comment" type="textLines" />
+                    <xs:element name="Type" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Group">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Name" type="xs:string" />
+                    <xs:element name="Members">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="MemberNumber" type="personNumber" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="People">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Person">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Number" type="personNumber" />
+                    <xs:element name="ID" type="xs:string" />
+                    <xs:element minOccurs="0" name="FirstName" type="xs:string" />
+                    <xs:element minOccurs="0" name="LastName" type="xs:string" />
+                    <xs:element minOccurs="0" name="BirthName" type="xs:string" />
+                    <xs:element name="Gender" type="genderType" />
+                    <xs:element minOccurs="0" name="Prefix" type="xs:string" />
+                    <xs:element minOccurs="0" name="Suffix" type="xs:string" />
+                    <xs:element name="Locked" type="xs:boolean" />
+                    <xs:element name="IsLiving" type="xs:boolean" />
+                    <xs:element minOccurs="0" name="Birth">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Date" type="xs:string" />
+                          <xs:element minOccurs="0" name="Place" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Death">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Date" type="xs:string" />
+                          <xs:element minOccurs="0" name="Place" type="xs:string" />
+                          <xs:element minOccurs="0" name="BurialPlace" type="xs:string" />
+                          <xs:element minOccurs="0" name="Cause" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Head" type="xs:boolean" />
+                    <xs:element minOccurs="0" name="HeadFileIfLinked" type="xs:string" />
+                    <xs:element minOccurs="0" name="Father" type="personNumber" />
+                    <xs:element minOccurs="0" name="Mother" type="personNumber" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Residence">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Text" type="xs:string" />
+                          <xs:element minOccurs="0" name="From" type="xs:string" />
+                          <xs:element minOccurs="0" name="To" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="Primary" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Occupation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Text" type="xs:string" />
+                          <xs:element minOccurs="0" name="From" type="xs:string" />
+                          <xs:element minOccurs="0" name="To" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="Primary" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Education">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Text" type="xs:string" />
+                          <xs:element minOccurs="0" name="From" type="xs:string" />
+                          <xs:element minOccurs="0" name="To" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="Primary" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Religion" type="xs:string" />
+                    <xs:element minOccurs="0" name="Christening" type="xs:string" />
+                    <xs:element minOccurs="0" name="Godparent1" type="xs:string" />
+                    <xs:element minOccurs="0" name="Godparent2" type="xs:string" />
+                    <xs:element minOccurs="0" name="Nationality" type="xs:string" />
+                    <xs:element minOccurs="0" name="Citizenship" type="xs:string" />
+                    <xs:element minOccurs="0" name="Email1" type="xs:string" />
+                    <xs:element minOccurs="0" name="Email2" type="xs:string" />
+                    <xs:element minOccurs="0" name="Phone1" type="xs:string" />
+                    <xs:element minOccurs="0" name="Phone2" type="xs:string" />
+                    <xs:element minOccurs="0" name="WWW1" type="xs:string" />
+                    <xs:element minOccurs="0" name="WWW2" type="xs:string" />
+                    <xs:element name="InsertDate" type="xs:string" />
+                    <xs:element name="LastChange" type="xs:string" />
+                    <xs:element minOccurs="0" name="User1" type="xs:string" />
+                    <xs:element minOccurs="0" name="User2" type="xs:string" />
+                    <xs:element minOccurs="0" name="User3" type="xs:string" />
+                    <xs:element minOccurs="0" name="User4" type="xs:string" />
+                    <xs:element minOccurs="0" name="User5" type="xs:string" />
+                    <xs:element minOccurs="0" name="AdditionalText" type="textLines" />
+                    <xs:element minOccurs="0" name="RegistryText" type="textLines" />
+                    <xs:element minOccurs="0" name="Photos">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="PhotoNumber" type="xs:long" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Documents">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="DocumentNumber" type="xs:long" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Files">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="FileNumber" type="xs:long" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Partnerships">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Partnership">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Partner1" type="personNumber" />
+                    <xs:element name="Partner2" type="personNumber" />
+                    <xs:element name="Tag1" type="xs:integer" />
+                    <xs:element name="Tag2" type="xs:integer" />
+                    <xs:element name="Type" type="partnershipType" />
+                    <xs:element minOccurs="0" name="WeddingDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="WeddingPlace" type="xs:string" />
+                    <xs:element minOccurs="0" name="Priest" type="xs:string" />
+                    <xs:element minOccurs="0" name="Witnesses" type="xs:string" />
+                    <xs:element minOccurs="0" name="DivorceDate" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Trees">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Tree">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="Name" type="xs:string" />
+                    <xs:element name="FreeID" type="entityID" />
+                    <xs:element name="Entities">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityPerson">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element name="Person" type="personNumber" />
+                                <xs:element minOccurs="0" name="LinesPattern" type="textLines" />
+                                <xs:element name="Background" type="color" />
+                                <xs:element name="Border" type="color" />
+                                <xs:element name="Head" type="xs:boolean" />
+                                <xs:element name="Font" type="fontType" />
+                              </xs:sequence>
+                              <xs:attribute name="X" type="xs:long" use="required" />
+                              <xs:attribute name="Y" type="xs:long" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityFlowline">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element name="LinesCount" type="xs:integer" />
+                              </xs:sequence>
+                              <xs:attribute name="X" type="xs:long" use="required" />
+                              <xs:attribute name="Y" type="xs:long" use="required" />
+                              <xs:attribute name="Width" type="xs:long" use="required" />
+                              <xs:attribute name="Height" type="xs:long" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityComment">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element minOccurs="0" name="Lines" type="textLines" />
+                                <xs:element name="Background" type="color" />
+                                <xs:element name="Border" type="color" />
+                                <xs:element name="Font" type="fontType" />
+                              </xs:sequence>
+                              <xs:attribute name="X" type="xs:long" use="required" />
+                              <xs:attribute name="Y" type="xs:long" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityWeddingLine">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element name="Baseline" type="xs:long" />
+                                <xs:element name="Color" type="color" />
+                                <xs:element name="Entity1" type="entityID" />
+                                <xs:element name="Entity2" type="entityID" />
+                                <xs:element minOccurs="0" name="EntityWedding">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="ID" type="entityID" />
+                                      <xs:element name="Background" type="color" />
+                                      <xs:element name="Border" type="color" />
+                                      <xs:element minOccurs="0" name="LinesPattern" type="textLines" />
+                                    </xs:sequence>
+                                    <xs:attribute name="X" type="xs:long" use="required" />
+                                    <xs:attribute name="Y" type="xs:long" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityLine">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element name="Color" type="color" />
+                                <xs:element name="Entity1" type="entityID" />
+                                <xs:element name="Entity2" type="entityID" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityBrokenLine">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element name="Color" type="color" />
+                                <xs:element name="Entity1" type="entityID" />
+                                <xs:element name="Entity2" type="entityID" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityDoubleBrokenLine">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ID" type="entityID" />
+                                <xs:element name="Color" type="color" />
+                                <xs:element name="Entity1" type="entityID" />
+                                <xs:element name="Entity2" type="entityID" />
+                                <xs:element name="Type" type="doubleBrokenLineType" />
+                                <xs:element name="Break" type="xs:long" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="PosX" type="xs:long" use="required" />
+                  <xs:attribute name="PosY" type="xs:long" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="genderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="M" />
+      <xs:enumeration value="F" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="personNumber">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="partnershipType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="fontType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="Charset" type="xs:string" />
+      <xs:element name="Color" type="color" />
+      <xs:element name="Height" type="xs:integer" />
+      <xs:element name="Size" type="xs:integer" />
+      <xs:element name="Italic" type="xs:boolean" />
+      <xs:element name="Bold" type="xs:boolean" />
+      <xs:element name="Underline" type="xs:boolean" />
+      <xs:element name="StrikeOut" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="entityID">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="color">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:complexType name="textLines">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="TextLine" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="doubleBrokenLineType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

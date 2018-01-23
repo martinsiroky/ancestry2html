@@ -1,0 +1,46 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<#if utils.photos><a href="../${utils.photosFile}">${msg('navigation.toListOfPhotos')}</a><br/></#if>
+			<#if utils.credentials><a href="../${utils.credentialsFile}">${msg('navigation.toListOfCredentials')}</a></#if>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('documents.headline')}</h1>
+
+	<div id="block_0">
+		<#if !config.useMaidenName>
+			<p>
+				${msg('list.lastNamesInfo')}
+			</p>
+		</#if>
+	
+		<ul class="photosList">
+		<#list documentsList as doc>
+			<#if doc.visible>	
+			<li>
+			<a href="../${utils.documentFile(doc.id)}">${doc.name}</a><#if config.showShortDescInLists && doc.description??><span class="fileDescription"> - ${utils.shortText(doc.description!,40)}</span></#if>
+			<br/>&nbsp;&nbsp;&nbsp;${msg('documents.assignedPeople')}: 
+			<#list doc.people as person>
+				<#assign inc_name_persone=person/>
+				<#include "parts/name.htm"/>
+				<#if person_has_next>, </#if>
+			</#list>
+			</li>
+			</#if>
+		</#list>
+		</ul>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

@@ -1,0 +1,70 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br><br>
+			<a href="../${utils.hierarchicalListFile}">${msg('navigation.toHierarchical')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('table.headline')}</h1>
+	
+	<div id="block_0">
+		<#assign mainPerson=utils.mainPerson />
+	
+		<script>
+			$(document).ready(function() {
+				// call the tablesorter plugin
+				$("table").tablesorter({
+					// sort on the first column and third column, order asc
+					sortList: [[0,0],[2,0]]
+				});
+			});
+		</script>
+		
+		<div style="width: 100%; overflow: auto;">
+		<table style="border: 1px solid black;">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Titul před</th>
+					<th>Rodné příjmení</th>
+					<th>Příjmení</th>
+					<th>Jméno</th>
+					<th>Titul za</th>
+					<th>Datum narození</th>
+					<th>Místo narození</th>
+					<th>Datum úmrtí</th>
+					<th>Místo úmrtí</th>
+				</tr>
+			</thead>
+			<tbody>
+				<#list peopleList as person>
+				<tr <#if mainPerson==person.ident>class="mainPerson"</#if>
+					<td>${person.ident}</td>
+					<td>${person.titleFront!}</td>
+					<td><a href="../${utils.personalFile(person.id)}">${person.maidenname!}</a></td>
+					<td>${person.lastname!}</td>
+					<td>${person.firstname!}</td>
+					<td>${person.titleBack!}</td>
+					<td>${person.birthDate!}</td>
+					<td>${person.birthPlace!}</td>
+					<td>${person.deathDate!}</td>
+					<td>${person.deathPlace!}</td>
+				</tr>
+				</#list>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

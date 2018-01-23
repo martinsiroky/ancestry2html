@@ -1,0 +1,142 @@
+Manuál pro editaci konfiguračního souboru Ancestry2html.properties
+
+Pozn. Relativní cesty použité v konfiguračním souboru se vztahují k tomuto konfiguračnímu souboru; v jakékoli cestě \ musí být nahrazeno \\
+U každé vlastnosti je uvedena ukázková hodnota.
+
+
+	PARAMETRY VSTUPNÍCH DAT
+----------------------------------------------------------------------------
+propertiesEncoding=UTF-8
+	kódování konfiguračních souborů, v případě, že není uvedeno, je použito standardní systémové kódování
+----------------------------------------------------------------------------
+file=..\\..\\..\\..\\..\\..\\Rodokmen\\Projects\\Martin.rod
+	soubor s daty ke zpracování (soubor *.rod), parametr -f aplikace přepisuje toto nastavení
+----------------------------------------------------------------------------
+templatesDir=
+	cesta k šablonám, parametr -t aplikace přepisuje toto nastavení
+----------------------------------------------------------------------------
+inputImgDir=
+	odkud kopírovat obrázky pro stránku, není-li uvedeno použije se "templatesDir"/img
+----------------------------------------------------------------------------
+inputCssDir=
+	odkud kopírovat css styly stránky, není-li uvedeno použije se "templatesDir"/css
+----------------------------------------------------------------------------
+templateEncoding=UTF-8
+	kódování šablon (necháte-li prázdné, použije se standardní systémové kódování)
+----------------------------------------------------------------------------
+
+
+	PARAMETRY VÝSTUPNÍCH DAT
+----------------------------------------------------------------------------
+outputDir=..\\..\\..\\output\\Test
+	kam generovat výsledné html soubory, parametr -o aplikce přepisuje toto nastavení
+----------------------------------------------------------------------------
+outputImgDir=..\\..\\..\\output\\Test\\imgs
+	kam nakopírovat obrázky pro stránku, parametr -i aplikace přepisuje toto nastavení, není-li uvedeno použije se "outputDir"/img
+----------------------------------------------------------------------------
+outputCssDir=..\\..\\..\\output\\Test\\css
+	kam nakopírovat css styly stránky, parametr -c aplikace přepisuje toto nastavení, není-li uvedeno použije se "outputDir"/css
+----------------------------------------------------------------------------
+outputEncoding=UTF-8
+	kódování výsledných html souborů (necháte-li prázdné, použije se standardní systémové kódování)
+----------------------------------------------------------------------------
+indexFileName=index.htm
+	jméno vygenerovaného souboru s rozcestníkem na jednotlivé seznamy
+----------------------------------------------------------------------------
+personalFileName=rodokmen_person{id}.htm
+	maska pro soubory s detaily osoby ({id} bude nahrazeno číslem osoby)
+----------------------------------------------------------------------------
+partnershipFileName=rodokmen_partners{id}.htm
+	maska pro soubory s detaily partnerství (manželství) ({id} bude nahrazeno jednoznačným identifikátorem)
+----------------------------------------------------------------------------
+listFileName=rodokmen_list.htm
+	jméno soboru s abecedním seznamem osob
+----------------------------------------------------------------------------
+listHierarchyFileName=rodokmen_listHierarchy.htm
+	jméno soboru s hierarchickým seznamem osob	
+----------------------------------------------------------------------------
+
+
+	PARAMETRY NASTAVENÍ SOUKROMÍ
+----------------------------------------------------------------------------
+hideBirthData=no
+	skrýt data narození (datum a místo) osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideDeathData=no
+	skrýt data úmrtí (datum a místo) osoby. Možné hodnoty: no (nikdy)/all (vždy)
+----------------------------------------------------------------------------
+hideLivePlaces=no
+	skrýt bydliště osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideJobs=no
+	skrýt povolání osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideEducation=no
+	skrýt vzdělání osoby. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideContact=no
+	skrýt emaily a telefony. Možné hodnoty: no (nikdy)/all (vždy)
+----------------------------------------------------------------------------
+hideWeb=no
+	skrýt webové adresy. Možné hodnoty: no (nikdy)/all (vždy)
+----------------------------------------------------------------------------
+hideReligion=no
+	skrýt všechny náboženké údaje. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideNationality=all
+	skrýt národnost a státní příslušnost. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideUserDefined=no
+	skrýt uživatelsky definované položky. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideRegistryInfo=no
+	skrýt informace o matrikách. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hideHeads=no
+	skrýt obrázky hlav. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+hidePhotos=no
+	skrýt fotografie. Možné hodnoty: no (nikdy)/live (pro žijící osoby)/all (vždy)
+----------------------------------------------------------------------------
+
+
+	DALŠÍ PARAMETRY
+----------------------------------------------------------------------------
+birthDeathSplitter=,&nbsp;
+	oddělovač mezi datem a místem (použito pro vlastnosti 'birth' a 'death')
+----------------------------------------------------------------------------
+fromToSplitter=&nbsp;&ndash;&nbsp;
+	oddělovač mezi od a do (použito pro vlastnost 'fromTo' u bydliště, zaměstnání, vzdělání ...)
+----------------------------------------------------------------------------
+toPrefix=do&nbsp;
+	oddělovač mezi od a do pokud datum od není vyplněn (použito pro vlastnost 'fromTo' u bydliště, zaměstnání, vzdělání ...)
+----------------------------------------------------------------------------
+groupsOnly=
+	filtr osob; pouze osoby náležející do těchto skupin budou zobrazeny (jména oddělená středníkem). V případě, že je prázdné, zobrazí všechny osoby.
+----------------------------------------------------------------------------
+groupsHide=skryte
+	filtr osob; osoby náležející do těchto skupin budou skryty (jména oddělená středníkem). Standardně prázdné
+----------------------------------------------------------------------------
+locale=cs_CZ
+	jaké locale použít (použito např. pro třídění osob v seznamu). V případě, že není uvedeno, použije se systémové locale. Příklady: cs_CZ, en_GB, en_US
+----------------------------------------------------------------------------
+emptyPeople=true
+	v případě, že daná osoba nemá uvedenu matku nebo otce, blok se normálně nezobrazí
+	pokud je tato volba nastavena na true, blok je vygenerován s prázdnými položkami
+	parametr -e aplikace přepisuje toto nastavení
+----------------------------------------------------------------------------
+mainPersonId=0
+	číslo hlavní osoby - použito v hierarchickém seznamu pro určení hlavní osoby
+----------------------------------------------------------------------------
+addressSplitter=,
+	oddělovač použitý v adresách osob (např. "Dlouhá 28, Hradec Králové, 500 02, Česká republika" - oddělovač je čárka)
+----------------------------------------------------------------------------
+townInAddressPosition=2
+	pozice města (obce) v adrese bydliště (např. "Dlouhá 28, Hradec Králové, 500 02, Česká republika" - pozice obce je 2)
+----------------------------------------------------------------------------
+townInBirthPosition=1
+	pozice města (obce) v záznamech: místo narození, místo úmrtí a místo pohřbení (např. "Hradec Králové, porodnice" - pozice obce je 1)
+----------------------------------------------------------------------------
+useMaidenName=true
+	zobrazit "rodné příjmení" a "křestní jméno" pro tag "name". Je-li false pak zobrazí "poslední příjmení" a "křestní jméno"
+----------------------------------------------------------------------------

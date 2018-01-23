@@ -1,0 +1,558 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<a href="../${utils.listFile}">${msg('navigation.toList')}</a><br/>
+			<a href="../${utils.hierarchicalListFile}">${msg('navigation.toHierarchical')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#assign person_0>
+	<#if !config.useMaidenName>
+		<p>
+			${msg('list.lastNamesInfo')}
+		</p>
+	</#if>
+</#assign>
+
+<#assign person_1>
+	<#if c.head>
+		<img src="../imgs/hlava${c.id}.jpg" alt="head" class="head"/>
+	<#else>
+		<img src="../imgs/nohead.png" alt="nohead" class="head"/>
+	</#if>
+</#assign>
+
+<#assign person_2>
+<div id="person_2">
+	<#if config.showId>
+		<div class="block">
+			${msg('person.id')}: ${c.ident}
+		</div>
+	</#if>
+
+	<#if c.maidenname??>
+		<div class="block">
+			${msg('person.maidenname')}: ${c.maidenname}
+		</div>
+	</#if>
+
+	<#if c.lastname??>
+		<div class="block">
+			${msg('person.lastname')}: ${c.lastname}
+		</div>
+	</#if>
+		
+	<div class="block">
+		<#if (c.birth?length>0)>
+			${msg('person.birth')}: ${c.birth}<br/>
+		</#if>
+		<#if (c.death?length>0)>
+			${msg('person.death')}: ${c.death}<br/>
+		</#if>
+		<#if c.deathCause??>
+			${msg('person.deathCause')}: ${c.deathCause}<br/>
+		</#if>
+		<#if c.burialPlace??>
+			${msg('person.burialPlace')}: ${c.burialPlace}<br/>
+		</#if>
+	</div>
+</div>
+</#assign>
+
+<#assign person_11>
+<div id="person_11">
+	<div class="block">
+		<#if f.id??>
+			${msg('person.father')}: 
+			<#if f.hidden>
+				${msg('person.hidden')}
+			<#elseif f.id==-2>
+				${msg('father.unknown')}
+			<#else>
+				<#assign inc_name_persone=f/>
+			<#include "parts/name.htm"/><#if f.birthDate??>, ${f.birthDate}</#if>
+			</#if><br/>
+		</#if>
+		<#if m.id??>
+			${msg('person.mother')}:
+		  <#if m.hidden>
+				${msg('person.hidden')}
+			<#elseif m.id==-2>
+				${msg('mother.unknown')}
+			<#else>
+				<#assign inc_name_persone=m/>
+				<#include "parts/name.htm"/><#if m.birthDate??>, ${m.birthDate}</#if>
+			</#if>
+			<br/>
+		</#if>
+	</div>
+
+	<#if (c.siblings?size>0)>
+		<div class="block">
+			${msg('person.siblings')}:
+			<ul>
+				<#list c.siblings as s>
+					<li>
+						<#if s.hidden>
+							${msg('person.hidden')}
+						<#else>
+							<#assign inc_name_persone=s/>
+							<#include "parts/name.htm"/><#if s.birthDate??>, ${s.birthDate}</#if>
+						</#if>
+						<br/>
+					</li>
+				</#list>
+			</ul>
+		</div>
+	</#if>
+
+	<#if (c.partners?size>0)>
+		<div class="block">
+			${msg('person.partners')}:
+			<ul>
+				<#list c.partners as p>
+					<li>
+						<#if p.hidden>
+							${msg('person.hidden')}
+						<#else>
+							<#assign inc_name_persone=p/>
+							<#include "parts/name.htm"/><#if p.birthDate??>, ${p.birthDate}</#if>
+							<a href="../${utils.partnersFile(p.getPartnership(c.id).id)}"> - ${msg('person.partnersDetails')}</a>
+						</#if>
+						<br/>
+					</li>
+				</#list>
+			</ul>
+		</div>
+	</#if>
+
+	<#if (c.children?size>0)>
+		<div class="block">
+		  ${msg('person.children')}:
+			<ul>
+				<#list c.children as ch>
+					<li>
+						<#if ch.hidden>
+							${msg('person.hidden')}
+						<#else>
+							<#assign inc_name_persone=ch/>
+							<#include "parts/name.htm"/><#if ch.birthDate??>, ${ch.birthDate}</#if>
+							<span class="motherOfChild">
+								<#if c.male && ch.mother??>
+									(${msg('person.childMother')} <#if ch.mother.hidden>${msg('person.hidden')}<#else>${ch.mother.name!}</#if>)
+								</#if>
+								<#if c.female && ch.father??>
+									(${msg('person.childFather')} <#if ch.mother.hidden>${msg('person.hidden')}<#else>${ch.father.name!}</#if>)
+								</#if>
+							</span>
+						</#if>
+					</li>
+				</#list>
+			</ul>
+		</div>
+	</#if>
+</div>	
+</#assign>
+
+<#assign person_3>
+<#if (!config.hidePathToMain) && (c.relations?size>1)>
+<div id="person_3">
+	<div class="block">
+		${msg('person.relation')}:
+		<#list c.relations?reverse as relation>
+			<#assign person=relation.person />
+			<#if person.hidden>
+				${msg('person.hidden')}
+			<#else>
+				<#assign inc_name_persone=person/>
+				<#include "parts/name.htm"/>
+			</#if>
+
+			<span class="motherOfChild">(<#if hisHer??>${msg('person.relation.${hisHer}')} </#if>${msg('person.relation.${relation.relation.key}')})</span>
+			<#if relation_has_next>
+				&mdash;
+				<#assign hisHer=(person.male)?string('his','her') />
+			</#if>
+		</#list>
+	</div>
+</div>
+</#if>
+</#assign>
+
+<#assign person_4>
+<#if (c.liveLength?? || c.places?size>0 || c.jobs?size>0 || c.education?size>0)>
+<div id="person_4">	
+	<#if c.liveLength??>
+		<div class="block aditional">
+			<#if c.live><span title="${msg('stats.relevantToDate',g.today)}" class="hint">${msg('person.actualLengthOfLive')}</span><#else>${msg('person.lengthOfLive')}</#if>: 
+			<#if c.liveLength.years??>${msg('person.years',c.liveLength.years)}</#if>
+			<#if c.liveLength.months??>${msg('person.months',c.liveLength.months)}</#if>
+			<#if c.liveLength.days??>${msg('person.days',c.liveLength.days)}</#if>
+
+			(${msg('person.days',c.liveLength.onlyDays)})
+		</div>
+	</#if>
+
+	<#if (c.places?size>0)>
+		<div class="block aditional">
+			${msg('person.places')}:
+			<ul>
+				<#list c.places as place>
+					<li>${place.address} <#if place.fromTo??>(${place.fromTo})</#if></li>
+				</#list>
+			</ul>
+		</div>
+	</#if>
+
+	<#if (c.jobs?size>0)>
+		<div class="block aditional">
+			${msg('person.jobs')}:
+			<ul>
+				<#list c.jobs as job>
+					<li>${job.position} <#if job.fromTo??>(${job.fromTo})</#if></li>
+				</#list>
+			</ul>
+		</div>
+	</#if>
+
+	<#if (c.education?size>0)>
+		<div class="block aditional">
+			${msg('person.education')}:
+			<ul>
+				<#list c.education as edu>
+					<li>${edu.name} <#if edu.fromTo??>(${edu.fromTo})</#if></li>
+				</#list>
+			</ul>
+		</div>
+	</#if>
+</div>
+</#if>
+</#assign>
+
+<#assign person_5>
+<#if c.religion?? || c.christening?? || c.godparent1?? || c.nationality?? || c.citizenship??>
+<div id="person_5">
+	<#if c.religion?? || c.christening?? || c.godparent1??>
+		<div class="block aditional">
+			<#if c.religion??>${msg('person.religion')}: ${c.religion}<br/></#if>
+			<#if c.christening??>${msg('person.christening')}: ${c.christening}<br/></#if>
+			<#if c.godparent1??>${msg('person.godparents')}: ${c.godparent1}
+				<#if c.godparent2??>, ${c.godparent2}</#if><br/>
+			</#if>
+		</div>
+	</#if>
+
+	<#if c.nationality?? || c.citizenship??>
+		<div class="block aditional">
+			<#if c.nationality??>${msg('person.nationality')}: ${c.nationality}<br/></#if>
+			<#if c.citizenship??>${msg('person.citizenship')}: ${c.citizenship}<br/></#if>
+		</div>
+	</#if>
+</div>
+</#if>
+</#assign>
+
+<#assign person_6>
+<#if c.email1?? || c.phone1?? || c.web1??>
+	<div id="person_6">
+		<div class="block aditional">
+			<#if c.email1??>${msg('person.email')}: <a href="mailto:${c.email1}">${c.email1}</a>
+				<#if c.email2??>, <a href="mailto:${c.email2}">${c.email2}</a></#if><br/>
+			</#if>
+							
+			<#if c.phone1??>${msg('person.phone')}: ${c.phone1}
+				<#if c.phone2??>, ${c.phone2}</#if><br/>
+			</#if>
+
+			<#if c.web1??>${msg('person.web')}: <a href="${c.web1http}" target="_blank">${c.web1}</a>
+				<#if c.web2??>, <a href="${c.web2http}" target="_blank">${c.web2}</a></#if><br/>
+			</#if>
+		</div>
+	</div>
+</#if>
+</#assign>
+
+<#assign person_7>
+<#if c.userDef1?? || c.userDef2?? || c.userDef3?? || c.userDef4?? || c.userDef5?? || c.registryInfo?? || (c.additionalInfo?? && c.additionalInfo?size>0)>
+<div id="person_7">
+	<#if c.userDef1?? || c.userDef2?? || c.userDef3?? || c.userDef4?? || c.userDef5??>
+		<div class="block aditional">
+			<#if c.userDef1??>${g.rodUser1}: ${c.userDef1}<br/></#if>
+			<#if c.userDef2??>${g.rodUser2}: ${c.userDef2}<br/></#if>
+			<#if c.userDef3??>${g.rodUser3}: ${c.userDef3}<br/></#if>
+			<#if c.userDef4??>${g.rodUser4}: ${c.userDef4}<br/></#if>
+			<#if c.userDef5??>${g.rodUser5}: ${c.userDef5}<br/></#if>
+		</div>
+	</#if>
+
+	<#if c.registryInfo??>
+		<div class="block aditional">
+			${msg('person.registryInfo')}:<br/>${c.registryInfo}
+		</div>
+	</#if>
+
+	<#if (c.additionalInfo?? && c.additionalInfo?size>0)>
+		<div class="block aditional">
+			${msg('person.additionalTexts')}:<br/>
+			<#list c.additionalInfo as text>
+				${text}<br/>
+			</#list>
+		</div>
+	</#if>
+</div>
+</#if>
+</#assign>
+
+<#assign person_8>
+<div id="person_8">
+	<table cellspacing="0" cellpadding="0" class="treeTable">
+		<tr class="peopleRow">
+			<td colspan="2">
+				<#assign person=ff/>
+				<#assign class="ffCell"/>
+				<#include "parts/person.htm"/>
+			</td>
+			<td colspan="2">
+				<#assign person=mf/>
+				<#assign class="mfCell"/>
+				<#include "parts/person.htm"/>
+			</td>
+			<td colspan="2">
+	 			<#assign person=fm/>
+				<#assign class="fmCell"/>
+				<#include "parts/person.htm"/>
+			</td>
+			<td colspan="2">
+				<#assign person=mm/>
+				<#assign class="mmCell"/>
+				<#include "parts/person.htm"/>
+			</td>
+		</tr>
+
+		<tr class="lineRow">
+			<td>&nbsp;</td>
+			<td colspan="2" class="leftBorder rightBorder bottomBorder marriage">
+				&nbsp;
+				<#if ff.id?? && mf.id?? && mf.getPartnership(ff.id)?? && mf.getPartnership(ff.id).marriageDate??>
+					${mf.getPartnership(ff.id).marriageDate}
+					<#if mf.getPartnership(ff.id).divorced>
+						&mdash; ${mf.getPartnership(ff.id).divorceDate!}
+					</#if>
+				</#if>
+				&nbsp;									
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td colspan="2" class="leftBorder rightBorder bottomBorder marriage">
+				&nbsp;
+				<#if fm.id?? && mm.id?? && mm.getPartnership(fm.id)?? && mm.getPartnership(fm.id).marriageDate??>
+					${mm.getPartnership(fm.id).marriageDate}
+					<#if mm.getPartnership(fm.id).divorced>
+						&mdash; ${mm.getPartnership(fm.id).divorceDate!}
+					</#if>
+				</#if>
+				&nbsp;
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td class="rightBorder">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			<td>&nbsp;</td><td>&nbsp;</td><td class="leftBorder">&nbsp;</td><td>&nbsp;</td>
+		</tr>
+
+		<tr class="peopleRow peopleRow2">
+			<td colspan="4">
+				<#assign person=f/>
+				<#assign class="fCell"/>
+				<#include "parts/person.htm"/>
+			</td>
+			<td colspan="4">
+				<#assign person=m/>
+				<#assign class="mCell"/>
+				<#include "parts/person.htm"/>
+			</td>
+		</tr>
+
+		<tr class="lineRow">
+			<td>&nbsp;</td><td>&nbsp;</td><td class="leftBorder bottomBorder">&nbsp;</td>
+			<td class="bottomBorder marriage" colspan="2">
+				&nbsp;
+				<#if f.id?? && m.id?? && m.getPartnership(f.id)?? && m.getPartnership(f.id).marriageDate??>
+					${m.getPartnership(f.id).marriageDate}
+					<#if m.getPartnership(f.id).divorced>
+						&mdash; ${m.getPartnership(f.id).divorceDate!}
+					</#if>
+				</#if>
+				&nbsp;
+			</td>
+			<td class="rightBorder bottomBorder">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="leftBorder">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td colspan="3">&nbsp;</td>
+			<td colspan="2">
+				<#assign person=c/>
+				<#assign class="current"/>
+				<#include "parts/person.htm"/>
+			</td>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td colspan="3">&nbsp;</td>
+			<td colspan="1">&nbsp;</td>
+			<td colspan="1" class="leftBorder">&nbsp;</td>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+
+		<tr style="height: 10px;">
+			<td colspan="3" rowspan="3">
+				<div class="peopleGroup siblings">
+					<div class="small_title">${msg('person.tree.siblings')}:</div>
+					<#if (c.siblings?size>0)>
+						<#list c.siblings as s>
+							<#assign person=s/>
+							<#if c.halfSiblings?seq_contains(s)>
+								<#assign class="halfSibling"/>
+							<#else>
+								<#assign class=""/>
+							</#if>
+							<#include "parts/person.htm"/>
+						</#list>
+					</#if>
+				</div>
+			</td>
+
+			<td colspan="2">
+				<div class="peopleGroup">
+					<div class="small_title">${msg('person.tree.children')}:</div>
+					<#if (c.children?size>0)>
+						<#list c.children as ch>
+							<#assign person=ch/>
+							<#assign class=""/>
+							<#include "parts/person.htm"/>
+						</#list>
+					</#if>
+				</div>
+			</td>
+
+			<td colspan="3" rowspan="3">
+				<div class="peopleGroup partners">
+					<div class="small_title">${msg('person.tree.partners')}:</div>
+					<#if (c.partners?size>0)>
+						<#list c.partners as p>
+							<#assign person=p/>
+							<#assign class=""/>
+							<#assign currentPerson=c/>
+							<#assign marriageDetail=true/>
+							<#include "parts/person.htm"/>
+							<#assign marriageDetail=false/>
+						</#list>
+					</#if>
+				</div>
+			</td>
+		</tr>	
+	</table>
+</div>
+</#assign>
+
+<#assign person_9>
+<#if (c.photos?size>0)>
+<div id="person_9">
+		<div class="block aditional">
+			${msg('person.photos')}:
+			<ul>
+				<#list c.photos as p>
+				<li>
+					<a href="../${utils.photoFile(p.id)}"
+						onmouseover="javascript:document.getElementById('p${p.id}').style.display='block'"
+						onmouseout="javascript:document.getElementById('p${p.id}').style.display='none'">${p.name}</a><br/>
+					<div class="miniphoto" id="p${p.id}"><img class="miniphoto" src="../imgs/minifoto${p.id}.jpg" alt="miniphoto"/></div>
+					&nbsp;
+				</li>
+				</#list>
+			</ul>
+		</div>
+</div>
+</#if>
+</#assign>
+
+<#assign person_12>
+<#if (c.documents?size>0)>
+<div id="person_12">
+		<div class="block aditional">
+			${msg('person.documents')}:
+			<ul>
+				<#list c.documents as d>
+					<li>
+					 	<a href="../${utils.documentFile(d.id)}">${d.name}</a><br/>
+					</li>
+				</#list>
+			</ul>
+		</div>
+</div>
+</#if>
+</#assign>
+
+<#assign person_13>
+<#if (c.credentials?size>0)>
+<div id="person_13">
+		<div class="block aditional">
+			${msg('person.credentials')}:
+			<ul>
+				<#list c.credentials as cred>
+					<li>
+						<a href="../${utils.credentialFile(cred.id)}"
+							onmouseover="javascript:document.getElementById('c${cred.id}').style.display='block'"
+							onmouseout="javascript:document.getElementById('c${cred.id}').style.display='none'">${cred.name}</a><br/>
+						<div class="miniphoto" id="c${cred.id}"><img class="miniphoto" src="../imgs/minicredential${cred.id}.jpg" alt="miniphoto"/></div>
+						&nbsp;
+					</li>
+				</#list>
+			</ul>
+		</div>
+</div>
+</#if>
+</#assign>
+
+<#assign person_10>
+<div id="person_10">
+	<div class="block aditional">
+		${msg('person.dateAdd')}: ${c.insertDate}<br/>
+		${msg('person.dateLastChange')}: ${c.changeDate}
+	</div>
+</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${(c.titleFront+" ")!""}${c.name!}${(" "+c.titleBack)!""}</h1>
+
+	<#list (my.personalPageOrder)?split(",") as part>
+		<#assign partName>person_${part?trim}</#assign>
+
+		<#if part?starts_with(" ")>
+			<div id="group_${part?trim}">
+		</#if>
+
+		${.vars[partName]}
+
+		<#if part?ends_with(" ")>
+			</div>
+		</#if>
+
+	</#list>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

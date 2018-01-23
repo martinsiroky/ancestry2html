@@ -1,0 +1,537 @@
+body { 
+	font-family: ${my.fontFamily};
+ 	background-color: ${my.backgroundColor!'#EEEEEE'};
+	background-image: url("${my.backgroundImage!''}");
+	_text-align: center;
+}
+
+#mainDiv {
+	border:${my.border!1}px outset ${my.borderColor};
+	width: 920px;
+ 	background-color: #FFFFFF;
+	margin: auto;
+	_text-align: center;
+	font-size: 10pt;
+ 	text-align: justify;
+	padding: 0px 12px;
+	margin-top: 0px;
+	${my.mainDiv!}
+}
+
+#group_2, #group_6 {
+	width: 50%;
+	float: left;
+}
+
+#person_10 {
+	clear: left;
+	padding-top:20px;
+}
+
+#person_3 {
+	border-bottom: 1px solid black;
+}
+
+#block_0 {
+	clear: right;
+	border-top: 1px solid black;
+	padding-top: 20px;
+}
+
+#person_8 {
+	padding: 20px 0;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	clear: right;
+}
+
+#person_2, #person_4, #person_5 {
+	padding-right: 20px;
+}
+
+#person_6, #person_7, #person_9, #person_12, #person_13 {
+	padding-left: 20px;
+}
+
+#person_2, #person_4, #person_5, #person_6, #person_7, #person_9, #person_10 {
+	margin: 2px 0;
+}
+
+#partner_1, #partner_2, #partner_3, #stats_1, #stats_2, #stats_3 {
+	margin: 2px 0;
+	clear: right;
+}
+
+#menu {
+	float: right;
+	padding: 20px 0;
+}
+
+.groupBox {
+	border-bottom:1px solid black;
+	font-size: 10pt; 
+	text-align: left;
+ 	padding: 20px 0px;
+ 	background-color: #FFFFFF;
+	margin: 2px 0px;
+	${my.block!}
+}
+
+h1 { 
+	font-size: 30px;
+ 	color: ${my.hColor!my.basicColor};
+ 	text-align: left;
+ 	${my.tagH1!}
+	margin: 0px 0px 30px;
+}
+
+/*List of first letters on list page*/
+h2 { 
+	font-size: 10pt;
+ 	color: ${my.aColor};
+ 	text-align: left;
+	margin: 0px 0px;
+}
+
+.homePage h1 {
+	font-size: 30px;
+	width:60%;	
+ 	text-align: left;
+	float: none;
+}
+
+.block { 
+	font-size: 10pt; 
+ 	color: #000000; 
+	margin: 15px 0px;
+	${my.block!}
+}
+
+.homePage .block {
+	font-size: 20px;
+	margin: 20px 0px;
+}
+
+/*e.g. photo on photo detail page*/
+.center {
+ 	color: ${my.basicColor};
+	text-align: center;
+}
+
+/*Navigation to other pages*/
+.navigation {
+ 	color: ${my.basicColor};
+	text-align: right;
+}
+
+.hidden {
+	display: none;
+	position: absolute;
+	background-image: yellow;
+}
+
+.tooltip {
+	position: absolute;
+	margin: 3em;
+	border: 1px solid black;
+	background-color: #efe;
+	font-family: tahoma;
+	font-size: 80%;
+}
+
+.tooltip.tfemale {
+	background-color: #fee;
+}
+
+.tooltip .head {
+	float:right;
+	margin-bottom:3px;
+	margin-left:5px;
+	max-width:28px;
+	_width: expression(this.width > 28 ? 28: true);
+}
+
+ul {
+	margin-top: 12px;
+	margin-bottom: 12px;
+	padding-left: 40px;
+	margin-left: 3px;
+}
+
+img { 
+	border: 1px outset ${my.borderColor};
+}
+
+a {
+ 	color: ${my.aColor};
+ 	text-decoration:none;
+}
+
+a:hover	{
+ 	color: ${my.aHrefColor};
+}
+
+.head {
+	max-width: 150px;
+	_height: expression(this.width > 150 ? 150: true);
+	margin-bottom: 5px;
+}
+
+.footer { 
+	font-size: 9pt; 
+	color: #999;
+ 	text-align: center;
+	border: none;
+	padding: 10px 0px;
+}
+
+.footer a {
+	font-size: 9pt;
+}
+
+.hint {
+	border-bottom:1px dashed silver;
+	cursor:help;
+}
+
+/*what is mother or father of child*/
+.motherOfChild {
+	font-size: 8pt;
+	font-weight: normal;
+}
+
+.treeTable {
+	width: 100%;
+}
+
+.treeTable td {
+	font-size: 12px;
+	border: 0px solid red;
+	padding: 0px;
+	padding-left: 3px;
+ 	padding-right: 3px;
+	vertical-align:top;
+	_text-align: center;
+	width: 12%;
+}
+
+.treeTable img {
+	border: 0px solid red;
+}
+
+.treeTable .leftBorder {
+	border-left: 1px solid gray;
+}
+
+.treeTable .rightBorder {
+	border-right: 1px solid gray;
+}
+
+.treeTable .bottomBorder {
+	border-bottom: 1px solid gray;
+}
+
+.treeTable div.peopleGroup {
+	border: 5px solid ${my.siblingColor!'#EEEEEE'};
+	background-color: ${my.siblingColor!'#EEEEEE'};
+	width: 250px;
+	padding-bottom: 2em;
+	margin: auto;
+	_text-align: center;
+	min-height: 130px;
+	_height: 130px;
+}
+
+.treeTable .peopleRow .person {
+	margin-left:16px;
+	_margin-left: -90px;
+	position:absolute;
+}
+
+.treeTable .peopleRow .person.fmCell {
+	margin-left:35px;
+	_margin-left: -75px;
+}
+
+.treeTable .peopleRow .person.mfCell {
+	_margin-left: -105px;
+}
+
+.treeTable .peopleRow2 .person {
+	margin-left:125px;
+	_margin-left:-100px;
+}
+
+.treeTable .peopleRow2 .person.mCell {
+	margin-left:150px;
+	_margin-left:-75px;
+}
+
+.treeTable .peopleRow {
+	height: 115px;
+}
+
+.treeTable .lineRow {
+	height: 33px;
+}
+
+div.siblings {
+	position: relative;
+	top: -100px;	
+}
+
+div.partners {
+	position: relative;
+	top: -100px;
+}
+
+.treeTable .person {
+	width: 15em;
+	_text-align: left;
+	background-image: none;
+	margin: auto;
+}
+
+/*definitions of rounded borders:*/
+.female {
+	_overflow: hidden;
+	background: white;
+}
+
+.female.top {
+	margin: 0 5px;
+ 	height: 0px;
+ 	border-top: 1px solid silver;
+}
+
+.female.b1 {
+	margin: 0 3px;
+ 	height: 1px;
+ 	border-left: 2px solid silver;
+ 	border-right: 2px solid silver;
+}
+
+.female.b2 {
+	margin: 0 2px;
+ 	height: 1px;
+ 	border-left: 1px solid silver;
+ 	border-right: 1px solid silver;
+}
+
+.female.b3 {
+	margin: 0 1px;
+ 	height: 2px;
+ 	border-left: 1px solid silver;
+ 	border-right: 1px solid silver;
+}
+
+.female.bottom {
+	margin: 0 5px;
+ 	height: 0px;
+ 	border-bottom: 1px solid silver;
+}
+
+.female.middle {
+	margin: 0px;
+ 	border-left: 1px solid silver;
+ 	border-right: 1px solid silver;
+	min-height: 9em;
+	_height: 9em;
+}
+
+.male {
+	margin: 0px;
+ 	border: 1px solid silver;
+	min-height: 9em;
+	_height: 9em;
+	background: white;
+	padding: 4px 0px;
+}
+/*end*/
+
+.person.current .female, .person.current .male {
+	background: #FFC;
+}
+
+/*half sibling - dashed border*/
+.person.halfSibling .female.middle {
+	border-left: 1px dashed silver;
+ 	border-right: 1px dashed silver;
+}
+
+.person.halfSibling .female.b2 {
+	border: 0px;
+	#border-left: 1px solid ${my.siblingColor!'#EEEEEE'};
+	#border-right: 1px solid ${my.siblingColor!'#EEEEEE'};
+}
+
+.person.halfSibling .female.top {
+	border-top: 1px dashed silver;
+}
+
+.person.halfSibling .female.bottom {
+	border-bottom: 1px dashed silver;
+}
+
+.person.halfSibling .male {
+	border: 1px dashed silver;
+}
+/*end*/
+
+div.peopleGroup .person {
+	margin: auto;
+	margin-top: 0.5em;
+}
+
+.person.current {
+	margin: auto;
+	margin-top: 0em;
+}
+
+.small_text {
+	text-align: left;
+	margin: 0px 3px;
+	font-size: 12px;
+	width: 9.5em;
+	overflow: hidden;
+	white-space:nowrap;
+}
+
+.small_text.nohead {
+	width: 14.5em;
+}
+
+.small_text a {
+	font-size: 10pt;
+}
+
+.small_title {
+	text-align: center;
+	width: 100%;
+}
+
+.person .head {
+	width: 46px;
+	height: 62px; 
+	margin: 0em 0.4em;
+	float: right;
+}
+
+.treeTable td.marriage {
+	font-size: 11px;
+	height: 20px;
+	vertical-align: bottom;
+	text-align: center;
+}
+
+/*photo detail page*/
+img.photo {
+	max-width: 599px;
+	_width: expression(this.width > 599 ? 599: true);
+}
+
+a.map {
+	font-size: 11px;
+	font-weight: normal;
+}
+
+img.symbol {
+	border: none;
+	width: 15px;
+	height: 15px;
+	position: relative;
+	top: 4px;
+}
+
+div.document {
+	padding: 15px 10px;
+	margin: 10px;
+	border: 1px outset ${my.borderColor};
+}
+
+div.document a {
+	font-size: 14px;
+}
+
+div.miniphoto {
+	display: none;
+	position: absolute;
+	padding: 10px;
+	background-color: white;
+}
+
+img.miniphoto {
+	max-height: 150px;
+	_height: expression(this.height > 150 ? 150: true);
+}
+
+.hideInSearch {
+	display: block;
+}
+
+.showInSearch {
+	display: none;
+}
+
+.searchInputs {
+	margin: 0em 0em 2em 0em;
+	text-align: left;
+}
+
+.clear {
+	clear: both;
+/*	width: 50%;*/
+}
+
+.firstLetters {
+	text-align: right;
+}
+
+ul.photosList {
+	margin-bottom: 140px;
+}
+
+.photosList li {
+	padding-bottom: 1em;
+}
+
+.groupBox.leftBox {
+	width: 50%;
+	float: left;
+	padding: 0px;
+	border: none;
+}
+
+.groupBox.leftBox .block {
+	margin-right: 20px;
+}
+
+.groupBox.rightBox {
+	width: 50%;
+	float: left;
+	padding: 0px;
+	border: none;
+}
+
+.groupBox.rightBox .block {
+	margin-left: 20px;
+}
+
+.mainPerson a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.fileDescription {
+	font-size: 0.8em;
+	color: #AAA;
+}
+
+.relationPath {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+h2.showInSearch {
+	margin-bottom: 12px;
+}

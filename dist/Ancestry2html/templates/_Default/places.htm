@@ -1,0 +1,48 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div  id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('places.headline')}</h1>
+
+	<div id="block_0">
+		<#if !config.useMaidenName>
+			<p>
+				${msg('list.lastNamesInfo')}
+			</p>
+		</#if>
+	
+		<#assign lastTown="-*-"/>
+		<#setting url_escaping_charset="UTF-8">
+		<#list placesList as place>
+			<#if place.town!=lastTown>
+				<#if (place_index>0)></ul></#if>
+	
+				<#assign lastTown=place.town/>
+				<h2 class="firstLetter">${place.town}&nbsp;<a class="map" target="_blank" 
+						href="${utils.getMapUrl(place.town?url,msg('places.maps.parameter'))}">${msg('places.map')}</a></h2><ul>
+			</#if>
+			<li>
+				<#assign inc_name_persone=place.person/>
+				<#include "parts/name.htm"/>
+			 	-
+				<#assign separator=""/>
+				<#if place.birthPlace>${msg('places.birthPlace')}<#assign separator=", "/></#if><#if place.livePlace>${separator}${msg('places.livePlace')}<#assign separator=", "/></#if><#if place.deathPlace>${separator}${msg('places.deathPlace')}<#assign separator=", "/></#if><#if place.burialPlace>${separator}${msg('places.burialPlace')}</#if>
+			</li>
+		</#list>
+		</ul>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

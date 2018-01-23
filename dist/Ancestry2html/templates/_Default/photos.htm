@@ -1,0 +1,49 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<#if utils.documents><a href="../${utils.documentsFile}">${msg('navigation.toListOfDocuments')}</a><br/></#if>
+			<#if utils.credentials><a href="../${utils.credentialsFile}">${msg('navigation.toListOfCredentials')}</a></#if>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('photos.headline')}</h1>
+
+	<div id="block_0">
+		<#if !config.useMaidenName>
+			<p>
+				${msg('list.lastNamesInfo')}
+			</p>
+		</#if>
+	
+		<ul class="photosList">
+		<#list photosList as photo>
+			<#if photo.visible>
+				<li>
+				<a href="../${utils.photoFile(photo.id)}"
+					onmouseover="javascript:document.getElementById('p${photo.id}').style.display='block'"
+					onmouseout="javascript:document.getElementById('p${photo.id}').style.display='none'">${photo.name}</a><#if config.showShortDescInLists && photo.description??><span class="fileDescription"> - ${utils.shortText(photo.description!,40)}</span></#if>
+				<br/><div class="miniphoto" id="p${photo.id}"><img class="miniphoto" src="../imgs/minifoto${photo.id}.jpg" alt="miniphoto"/></div>
+				&nbsp;&nbsp;&nbsp;${msg('photos.assignedPeople')}: 
+				<#list photo.people as person>
+					<#assign inc_name_persone=person/>
+					<#include "parts/name.htm"/>
+					<#if person_has_next>, </#if>
+				</#list>
+				</li>
+			</#if>
+		</#list>
+		</ul>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 

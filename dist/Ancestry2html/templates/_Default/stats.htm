@@ -1,0 +1,405 @@
+<#include "parts/header.htm">
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('stats.headline')}</h1>
+
+	<div id="block_0">
+		<div id="stats_0">
+			<#if !config.useMaidenName>
+				<p>
+					${msg('list.lastNamesInfo')}
+				</p>
+			</#if>
+		
+			<div class="block aditional">
+				${msg('stats.numberOfPeople',st.people?string,st.livePeople?string)}<br/>
+				${msg('stats.numberOfMen',st.men?string,st.liveMen?string)}<br/>
+				${msg('stats.numberOfWomen',st.women?string,st.liveWomen?string)}
+			</div>
+		
+			<div class="block aditional">
+				${msg('stats.numberOfGeneration',st.generation?string)}
+			</div>
+		</div>
+	
+		<div id="stats_1">
+			<div class="block aditional">
+				<h3>${msg('stats.men')}:</h3>
+		
+				<#assign text=msg('stats.maxAgeOfDead')/>
+				<#assign date=st.maxDeadManAge!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minAgeOfDead')}"/>
+				<#assign date=st.minDeadManAge!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxAgeOfAlive')}"/>
+				<#assign date=st.maxLiveManAge!""/>
+				<#assign span=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign span=false/>
+		
+				<#assign text="${msg('stats.minAgeOfAlive')}"/>
+				<#assign date=st.minLiveManAge!""/>
+				<#assign span=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign span=false/>
+		
+				<#assign text="${msg('stats.averageAge')}"/>
+				<#assign date=st.averageManAge!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign text="${msg('stats.averageMarriageAge')}"/>
+				<#assign date=st.averageManAgeOnWedding!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign text="${msg('stats.averageFirstChildAge')}"/>
+				<#assign date=st.averageManAgeOnFirstChild!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign names><#list st.frequentManNames.theMost as name>${name}<#if name_has_next>, </#if></#list></#assign>
+				${msg('stats.mostFrequentName',names,st.frequentManNames.theMostCount)}
+			</div>
+		
+			<div class="block aditional">
+				<h3>${msg('stats.women')}:</h3>
+		
+				<#assign text="${msg('stats.maxAgeOfDead')}"/>
+				<#assign date=st.maxDeadWomanAge!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minAgeOfDead')}"/>
+				<#assign date=st.minDeadWomanAge!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxAgeOfAlive')}"/>
+				<#assign date=st.maxLiveWomanAge!""/>
+				<#assign span=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign span=false/>
+		
+				<#assign text="${msg('stats.minAgeOfAlive')}"/>
+				<#assign date=st.minLiveWomanAge!""/>
+				<#assign span=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign span=false/>
+		
+				<#assign text="${msg('stats.averageAge')}"/>
+				<#assign date=st.averageWomanAge!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign text="${msg('stats.averageMarriageAge')}"/>
+				<#assign date=st.averageWomanAgeOnWedding!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign text="${msg('stats.averageFirstChildAge')}"/>
+				<#assign date=st.averageWomanAgeOnFirstChild!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign names><#list st.frequentWomanNames.theMost as name>${name}<#if name_has_next>, </#if></#list></#assign>
+				${msg('stats.mostFrequentName',names,st.frequentWomanNames.theMostCount)}
+			</div>
+		
+			<div class="block aditional">
+				<h3>${msg('stats.all')}:</h3>
+		
+				<#assign text="${msg('stats.maxAgeOfDead')}"/>
+				<#assign date=st.maxDeadAge!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minAgeOfDead')}"/>
+				<#assign date=st.minDeadAge!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxAgeOfAlive')}"/>
+				<#assign date=st.maxLiveAge!""/>
+				<#assign span=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign span=false/>
+		
+				<#assign text="${msg('stats.minAgeOfAlive')}"/>
+				<#assign date=st.minLiveAge!""/>
+				<#assign span=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign span=false/>
+		
+				<#assign text="${msg('stats.averageAge')}"/>
+				<#assign date=st.averageAge!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign text="${msg('stats.averageMarriageAge')}"/>
+				<#assign date=st.averageAgeOnWedding!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#assign text="${msg('stats.averageFirstChildAge')}"/>
+				<#assign date=st.averageAgeOnFirstChild!""/>
+				<#assign notPerson=true/>
+				<#include "parts/statsAge.htm"/>
+				<#assign notPerson=false/>
+		
+				<#if (st.frequentWomanNames.theMostCount>st.frequentManNames.theMostCount)>
+					<#assign names><#list st.frequentWomanNames.theMost as name>${name}<#if name_has_next>, </#if></#list></#assign>
+					${msg('stats.mostFrequentName',names,st.frequentWomanNames.theMostCount)}
+				<#else>
+					<#assign names><#list st.frequentManNames.theMost as name>${name}<#if name_has_next>, </#if></#list></#assign>
+					${msg('stats.mostFrequentName',names,st.frequentManNames.theMostCount)}
+				</#if>
+			</div>
+		</div>
+	
+		<div id="stats_2">
+			<div class="block aditional">
+		
+				<h3>${msg('stats.birthDayMonth')}:</h3>
+				<#assign names><#list st.frequentBirthMonth.theMost as monthNumber>${msg('stats.frequentMonth.month',monthNumber)}<#if monthNumber_has_next><#if (st.frequentBirthMonth.theMost?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.mostFrequentBirthMonth',names,st.frequentBirthMonth.theMostCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentBirthDay.theMost as dayNumber>${msg('stats.frequentDay.day',dayNumber)}<#if dayNumber_has_next><#if (st.frequentBirthDay.theMost?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.mostFrequentBirthDay',names,st.frequentBirthDay.theMostCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentBirthMonth.theLeast as monthNumber>${msg('stats.frequentMonth.month',monthNumber)}<#if monthNumber_has_next><#if (st.frequentBirthMonth.theLeast?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.leastFrequentBirthMonth',names,st.frequentBirthMonth.theLeastCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentBirthDay.theLeast as dayNumber>${msg('stats.frequentDay.day',dayNumber)}<#if dayNumber_has_next><#if (st.frequentBirthDay.theLeast?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.leastFrequentBirthDay',names,st.frequentBirthDay.theLeastCount)}
+			</div>
+		
+			<div class="block aditional">
+				<h3>${msg('stats.deathDayMonth')}:</h3>
+				<#assign names><#list st.frequentDeathMonth.theMost as monthNumber>${msg('stats.frequentMonth.month',monthNumber)}<#if monthNumber_has_next><#if (st.frequentDeathMonth.theMost?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.mostFrequentDeathMonth',names,st.frequentDeathMonth.theMostCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentDeathDay.theMost as dayNumber>${msg('stats.frequentDay.day',dayNumber)}<#if dayNumber_has_next><#if (st.frequentDeathDay.theMost?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.mostFrequentDeathDay',names,st.frequentDeathDay.theMostCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentDeathMonth.theLeast as monthNumber>${msg('stats.frequentMonth.month',monthNumber)}<#if monthNumber_has_next><#if (st.frequentDeathMonth.theLeast?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.leastFrequentDeathMonth',names,st.frequentDeathMonth.theLeastCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentDeathDay.theLeast as dayNumber>${msg('stats.frequentDay.day',dayNumber)}<#if dayNumber_has_next><#if (st.frequentDeathDay.theLeast?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.leastFrequentDeathDay',names,st.frequentDeathDay.theLeastCount)}
+			</div>
+		
+			<div class="block aditional">
+				<h3>${msg('stats.weddingDayMonth')}:</h3>
+				<#assign names><#list st.frequentWeddingMonth.theMost as monthNumber>${msg('stats.frequentMonth.month',monthNumber)}<#if monthNumber_has_next><#if (st.frequentWeddingMonth.theMost?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.mostFrequentWeddingMonth',names,st.frequentWeddingMonth.theMostCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentWeddingDay.theMost as dayNumber>${msg('stats.frequentDay.day',dayNumber)}<#if dayNumber_has_next><#if (st.frequentWeddingDay.theMost?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.mostFrequentWeddingDay',names,st.frequentWeddingDay.theMostCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentWeddingMonth.theLeast as monthNumber>${msg('stats.frequentMonth.month',monthNumber)}<#if monthNumber_has_next><#if (st.frequentWeddingMonth.theLeast?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.leastFrequentWeddingMonth',names,st.frequentWeddingMonth.theLeastCount)}
+				<br/>
+		
+				<#assign names><#list st.frequentWeddingDay.theLeast as dayNumber>${msg('stats.frequentDay.day',dayNumber)}<#if dayNumber_has_next><#if (st.frequentWeddingDay.theLeast?size==2)> a <#else>, </#if></#if></#list></#assign>
+				${msg('stats.leastFrequentWeddingDay',names,st.frequentWeddingDay.theLeastCount)}
+			</div>
+		</div>
+	
+		<div id="stats_3">
+			<div class="block aditional">
+				<h3>${msg('stats.weddingData')}:</h3>
+				<#assign text="${msg('stats.minWomanAgeOnWedding')}"/>
+				<#assign event="${msg('stats.event.wedding')}"/>
+				<#assign date=st.minWomanAgeOnWedding!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minManAgeOnWedding')}"/>
+				<#assign event="${msg('stats.event.wedding')}"/>
+				<#assign date=st.minManAgeOnWedding!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnWedding')}"/>
+				<#assign event="${msg('stats.event.wedding')}"/>
+				<#assign date=st.maxWomanAgeOnWedding!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnWedding')}"/>
+				<#assign event="${msg('stats.event.wedding')}"/>
+				<#assign date=st.maxManAgeOnWedding!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<br/>
+				<#assign date=st.minMarriageLength!""/>
+				<#if date!="" && (date.id>-1)>
+					<#assign p=utils.partnershipForId(date.id)/>
+					${msg('stats.minManMarriageLenght')}: 
+					<#assign inc_name_persone=p.man/>
+					<#include "parts/name.htm"/>
+					&amp; 
+					<#assign inc_name_persone=p.woman/>
+					<#include "parts/name.htm"/>
+				 	-	(<a href="../${utils.partnersFile(p.id)}">${msg('stats.partnershipDetail')}</a>) - 
+					<#if date.years??><#if date.months??>${msg('stats.years',date.years)}<#else>${msg('stats.yearsPlusMinus',date.years)}</#if></#if><#if date.months??><#if date.days??> ${msg('stats.months',date.months)}<#else> ${msg('stats.monthsPlusMinus',date.months)}</#if></#if><#if date.days??> ${msg('stats.days',date.days)} (${msg('stats.onlyDays',date.onlyDays)})</#if>
+					<br/>
+				</#if>
+		
+				<#assign date=st.maxMarriageLength!""/>
+				<#if date!="" && (date.id>-1)>
+					<#assign p=utils.partnershipForId(date.id)/>
+					${msg('stats.maxManMarriageLenght')}: 
+					<#assign inc_name_persone=p.man/>
+					<#include "parts/name.htm"/>
+					&amp; 
+					<#assign inc_name_persone=p.woman/>
+					<#include "parts/name.htm"/>
+				 	-	(<a href="../${utils.partnersFile(p.id)}">${msg('stats.partnershipDetail')}</a>) - 
+					<#if date.years??><#if date.months??>${msg('stats.years',date.years)}<#else>${msg('stats.yearsPlusMinus',date.years)}</#if></#if><#if date.months??><#if date.days??> ${msg('stats.months',date.months)}<#else> ${msg('stats.monthsPlusMinus',date.months)}</#if></#if><#if date.days??> ${msg('stats.days',date.days)} (${msg('stats.onlyDays',date.onlyDays)})</#if>
+				</#if>
+			</div>
+		
+			<div class="block aditional">
+				<h3>${msg('stats.parentsData')}:</h3>
+				<#assign text="${msg('stats.minWomanAgeOnChild')}"/>
+				<#assign event="${msg('stats.event.child')}"/>
+				<#assign date=st.minWomanAgeOnChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minManAgeOnChild')}"/>
+				<#assign event="${msg('stats.event.child')}"/>
+				<#assign date=st.minManAgeOnChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnChild')}"/>
+				<#assign event="${msg('stats.event.child')}"/>
+				<#assign date=st.maxWomanAgeOnChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnChild')}"/>
+				<#assign event="${msg('stats.event.child')}"/>
+				<#assign date=st.maxManAgeOnChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnFirstChild')}"/>
+				<#assign event=""/>
+				<#assign date=st.maxWomanAgeOnFirstChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnFirstChild')}"/>
+				<#assign event=""/>
+				<#assign date=st.maxManAgeOnFirstChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign names>
+					<#list st.maxCountChildrenPeople as person>
+						<#assign inc_name_persone=person/>
+						<#include "parts/name.htm"/>
+					<#if person_has_next>, </#if></#list>
+				</#assign>
+				${msg('stats.maxChildrenCount',st.maxCountChildren,st.maxCountChildrenPeople?size,names)}
+			</div>
+		
+			<div class="block aditional">	
+				<h3>${msg('stats.grandParentsData')}:</h3>
+				<#assign text="${msg('stats.minWomanAgeOnGrandChild')}"/>
+				<#assign event="${msg('stats.event.grandChild')}"/>
+				<#assign date=st.minWomanAgeOnGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minManAgeOnGrandChild')}"/>
+				<#assign event="${msg('stats.event.grandChild')}"/>
+				<#assign date=st.minManAgeOnGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnGrandChild')}"/>
+				<#assign event="${msg('stats.event.grandChild')}"/>
+				<#assign date=st.maxWomanAgeOnGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnGrandChild')}"/>
+				<#assign event="${msg('stats.event.grandChild')}"/>
+				<#assign date=st.maxManAgeOnGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnFirstGrandChild')}"/>
+				<#assign event=""/>
+				<#assign date=st.maxWomanAgeOnFirstGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnFirstGrandChild')}"/>
+				<#assign event=""/>
+				<#assign date=st.maxManAgeOnFirstGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+			</div>
+		
+			<div class="block aditional">
+				<h3>${msg('stats.greatGrandParentsData')}:</h3>
+				<#assign text="${msg('stats.minWomanAgeOnGreatGrandChild')}"/>
+				<#assign event="${msg('stats.event.greatGrandChild')}"/>
+				<#assign date=st.minWomanAgeOnGreatGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.minManAgeOnGreatGrandChild')}"/>
+				<#assign event="${msg('stats.event.greatGrandChild')}"/>
+				<#assign date=st.minManAgeOnGreatGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnGreatGrandChild')}"/>
+				<#assign event="${msg('stats.event.greatGrandChild')}"/>
+				<#assign date=st.maxWomanAgeOnGreatGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnGreatGrandChild')}"/>
+				<#assign event="${msg('stats.event.greatGrandChild')}"/>
+				<#assign date=st.maxManAgeOnGreatGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxWomanAgeOnFirstGreatGrandChild')}"/>
+				<#assign event=""/>
+				<#assign date=st.maxWomanAgeOnFirstGreatGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+		
+				<#assign text="${msg('stats.maxManAgeOnFirstGreatGrandChild')}"/>
+				<#assign event=""/>
+				<#assign date=st.maxManAgeOnFirstGreatGrandChild!""/>
+				<#include "parts/statsAge.htm"/>
+			</div>
+		</div>
+	
+		<div id="stats_4">
+			<div class="block aditional">
+				<sup>*</sup> ${msg('stats.notice')}
+			</div>
+		</div>
+	</div>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm">

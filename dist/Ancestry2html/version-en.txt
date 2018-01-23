@@ -1,0 +1,194 @@
+Ancestry2html is tool for generating html pages for your family tree created in Ancestry application. It can be used as standalone application or as a plugin of Ancestry. Application is absolutely free. Other information you can find on http://sirsi.wz.cz/ancestry2html.php (only in czech).
+
+History of version:
+
+Version 1.4.3.4:
+28.4.2010 - German language added for generating. Fixed problem with 0-days long live in statistics.
+
+Version 1.4.3.3:
+22.3.2010 - Solved isue with hiding birth, death and living places in list of places
+
+Testing version 1.4.3.2:
+3.8.2009 - Solved problem on template index.htm
+
+Testing version 1.4.3.1:
+8.7.2009 - Hide hidden children on partner detail page
+
+Version 1.4.2.5:
+8.7.2009 - Hide hidden children on partner detail page
+
+Version 1.4.2.4:
+4.7.2009 - Release for common users
+
+Version 1.4.2.3:
+15.5.2009 - Solved problem with missing "activePerson" parameter in rodz file
+
+Version 1.4.2.2:
+26.4.2009 - Solved problem with reading old rod format
+
+Version 1.4.2.1:
+22.3.2009 - Solved problem with copying additional files and photos
+
+Version 1.4.2:
+22.3.2009 - Small changes in loading rodz (check empty values in same fields)
+          - Tooltip s celým jménem osoby a fotkou po najetí na jméno kdekoli na stránkách
+
+Version 1.4.1:
+17.3.2009 - New format rodz (zipped xml with additional folders as images atd) supported
+
+Version 1.4.0:
+10.3.2009 - New format rodx (xml) supported
+
+Version 1.3.4.3:
+5.3.2009  - Solved problem with freezing application when processing large rod files
+          - Length of marriage of death person withou death date removed from statistics
+
+Version 1.3.4.1 and 1.3.4.2:
+4.3.2009  - Solved problem with NullPointerException in statistics computing (in some cases)
+          - Solved computing parents,grandparents and great grandparents in statistics
+
+Version 1.3.4:
+1.3.2009  - Allow Unknown father
+          - Many statistics on statistics page
+          - Hide divorce date if hidden person (resolved)
+          - Resolve bug with regenerating of places list with different group
+          - Localization of gui window by csv file (as localization of html)
+          - Resolved problem with localization of footer
+
+Version 1.3.3:
+31.1.2009 - List of photos, documents and credentials on partnership pages
+          - Main person is by default "Active" person from Ancestry
+          - Sorting children on partnership pages
+          - Sorting photos, documents and credentials by year
+          - Set main person of hierarchical list problem resolved
+          - Check now button
+
+Version 1.3.2.1:
+20.1.2009 - Ordering '?' after 'Ž' instead of 'Z'
+          - Solved problem with setting main person for path between main person and current person
+
+Version 1.3.2:
+18.1.2009 - Resolved problem with small bottom margin of person photo in Basic template in IE 6+7
+          - Resolved left margin of cells in TreeView template in some resolutions (fix width of page)
+          - Removed separator of tousands in numbers (years)
+          - Unknown name people moved to the end of the list
+
+Version 1.3.1.1:
+4.1.2009  - Sorting of sibling in list of siblings too
+          - New Slovak localization of html
+
+Version 1.3.1:
+3.1.2009  - Support for jQuery library (ability to use external javascript)
+          - Search people added to hierarchical list too
+          - Sorting children and siblings by birth date + partners sorted hierarchicaly
+          - Small correction of painting lines between cells
+
+Version 1.3.0.1:
+29.12.2008 - Solved problem with cahnging output folder and reading settings of window
+
+Version 1.3.0:
+28.12.2008 - Automatic closing of window after generating
+           - Automatic opening of browser after generating
+           - Choosing of language of GUI window
+           - Improvement of progressbar (store last settings into output folder)
+           - Prepared reading UTF-8 *.rod files
+           - Checking of newer version on the web
+
+Version 1.2.0.9b:
+6.12.2008  - Solved problem with hidden person in path to main person
+           - Solved problem with generating partnership detail file for hidden person
+
+Version 1.2.0.9:
+8.11.2008  - Saving new privacy profile + deleting own profiles
+           - Showing relation between main person and selected person on detail page
+           - Saving last used settings into output directory and loading this settings after output folder change.
+
+Version 1.2.0.8:
+24.8.2008  - Solved problem with speed - logging (4x faster). Level of logging set to INFO by default, DEBUG is optional.
+
+Version 1.2.0.7:
+3.8.2008   - Solved slashes and back slashes in links to language change.
+
+Version 1.2.0.6:
+1.8.2008   - Multilanguage pages generation with shared resources (photos).
+
+Version 1.2.0.5:
+27.7.2008  - Shown notice if last names instead of maiden names are used
+           - Allow run application directly from Ancestry (with lang and path to rod parameters)
+           - Show titles on person detail page
+           - Shown all available languages in combo for language of pages selection (depends on languages found in csv file)
+           - Allow to hide ID, birth or death on list of people
+           - Allow to show short description in list of files (e.g. list of photos)
+
+Version 1.2.0.4:
+21.6.2008  - Solved problem of version 1.2.0.3 - empty last and maiden name of person
+           - Process window localization solution (czech)
+
+Version 1.2.0.3:
+16.6.2008  - SecondName shown as "LastName (MaidenName)" in case "Show maiden name" property is set false.
+
+Version 1.2.0.1:
+27.4.2008  - Solved problem with alphabetical sorting.
+           - Select of map search provider.
+           - Redesign of settings window.
+
+Version 1.1:
+20.4.2008  - Solved problem with hierarchical list.
+           - Showing of hidden people - without data.
+           - Highlighted main person in lists + choosing of main person in settings window.
+           - Choosing locale in settings window.
+14.4.2008  - Html language selection - cz, en, sk
+6.4.2008   - Small changes: empty braces by jobs and live places removed
+           - numbering of partnership problem resolved
+           - ability of own names of generated files
+           - css and html for both templates merged
+23.3.2008  - Rounded boxes for women in tree.
+           - Solved problem with head pictures for person with ID>1000.
+           - Scrollbars of siblings, partners and childred removed.
+2.3.2008   - Showing ID is configurable.
+           - External files with heads is working now.
+           - Resizing photos and pictures with heads to given size + creating small thumbnails.
+           - Solved problem with duplicite showing of alphabet is list of people.
+17.2.2008  - Links to list of photos (files or documents) only if the page is not empty.
+           - Checking dates format (e.g. "15.10.????").
+           - Solved problem with reading identificator of person.
+           - Hiding additional text available.
+           - Solved problem with generation of pages (it was too slow)
+           - Design of pages changes (small changes)
+           - Application is available in linux too.
+10.2.2008  - Groups feature on gui window
+           - Oldes and youngest people on statistics page
+           - Search form on alfabetical list page
+4.2.2008   - Bugfix: backslashs replaced to slashes in url
+3.2.2008   - Page with list of all photographies (files and credentials)
+           - Processing dates of birth and death - showing length of live
+           - Process window during generation
+           - Running application as Ancestry2html.exe
+27.1.2008  - Page with details of document and credentials, hiding data of marriage, style of pages modified for printing
+20.1.2008  - Page with list of places; solved problem showing window with nonstandard dpi in system
+16.1.2008  - Settings of higing heads; Added showing photos; Basic style cleaned for all browsers
+12.1.2008  - Form with basic settins is working
+6.1.2008   - New styles based on TreeView, html pages cleaned (html validation)
+30.12.2007 - processing parameters in css files - used Templates.properties for defining user properties
+           - 2 new html styles
+           - index page with links to all lists, hierarchical list of people page
+           - new generate bat for all styles
+28.12.2007 - page with partnership details, shwing small tree on personal detail page (for 5 basic templates)
+27.12.2007 - support for different encoding of propertes files (so solved problem with czech letters e.g. in paths)
+27.12.2007 - version 1.1 - used freemarker for work with templates; unfortunatelly imcompatible with version 1.0.
+             Modifying of templates is now more flexible and it will be easier add new functionality.
+             I promise that it will not be any imcompatible change of templates!
+22.12.2007 - bat files moved to bin directory, used UTF-8 in templates
+9.12.2007  - added 2 parameters - templates encoding and output encoding
+1.10.2007  - added tags for showing grandparents
+           - resolved problem with czech letter "ch" (and other letters that contained more chars) in list of people
+           - relative paths available in parameters and in config file (problem with czech chars in paths NOT yet SOLVED)
+27.9.2007  - files starts with dot are skipped while copying image and css folders (e.g. ".svn", ".picassa")
+           - added working with groups (show only some groups / hide some groups)
+           - you can change style of person due to its group (up to for 5 groups)
+16.9.2007  - added new settings: hiding of some items (birth, death, place, education, job)
+             for all/live/no
+           - added new items of person (email, religion ...)
+           - manual for creating templates
+           - comments in config file
+13.9.2007  - first version

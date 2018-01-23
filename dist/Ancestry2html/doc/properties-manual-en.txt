@@ -1,0 +1,144 @@
+Manual for editing config file Ancestry2html.properties
+
+Note: relative paths in properties files are relative to properties file; the \ in any path must be replaced be \\
+There is some example by each property.
+
+
+	PARAMETERS OF INPUT DATA
+----------------------------------------------------------------------------
+propertiesEncoding=UTF-8
+	encoding of properties files, in case it is not specified the system encoding is used
+----------------------------------------------------------------------------
+file=..\\..\\..\\..\\..\\..\\Rodokmen\\Projects\\Martin.rod
+	file with data to process (*.rod file), the -f parameter of application overwrite this
+----------------------------------------------------------------------------
+templatesDir=
+	where the templates are placed, the -t parameter of application overwrite this
+----------------------------------------------------------------------------
+inputImgDir=
+	where the images will be copied from, in case it is not defined program will use "templatesDir"/img
+----------------------------------------------------------------------------
+inputCssDir=
+	where the css files will be copied from, in case it is not defined program will use "templatesDir"/css
+----------------------------------------------------------------------------
+templateEncoding=UTF-8
+	kódování šablon (necháte-li prázdné, použije se standardní systémové kódování)
+----------------------------------------------------------------------------
+
+
+	PARAMETERS OF OUTPUT DATA
+----------------------------------------------------------------------------
+outputDir=..\\..\\..\\output\\Test
+	where the html files will be generated, the -o parameter of application overwrite this
+----------------------------------------------------------------------------
+outputImgDir=..\\..\\..\\output\\Test\\imgs
+	where the images will be copied to, the -i parameter of application overwrite this, in case it is not defined program will use "outputDir"/img
+----------------------------------------------------------------------------
+outputCssDir=..\\..\\..\\output\\Test\\css
+	where the css files will be copied to, the -c parameter of application overwrite this, in case it is not defined program will use "outputDir"/css
+----------------------------------------------------------------------------
+outputEncoding=UTF-8
+	encoding of output files (in case it is empty, default system encoding is used)
+----------------------------------------------------------------------------
+indexFileName=index.htm
+	name of generated index page with links to all list pages
+----------------------------------------------------------------------------
+personalFileName=rodokmen_person{id}.htm
+	naming mask for personal files ({id} will be replaced by id of person)
+----------------------------------------------------------------------------
+partnershipFileName=rodokmen_partners{id}.htm
+	naming maska for partnership files ({id} will be replaced by unique id)
+----------------------------------------------------------------------------
+listFileName=rodokmen_list.htm
+	name of list of alphabetical list of person
+----------------------------------------------------------------------------
+listHierarchyFileName=rodokmen_listHierarchy.htm
+	name of hierarchical list of person
+----------------------------------------------------------------------------
+
+
+	PARAMETERS FOR PRIVACY SETTINGS
+----------------------------------------------------------------------------
+hideBirthData=no
+	hide birth data (date and place) of person. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideDeathData=no
+	hide death data (date and place) of person. Values: no/all (default no)
+----------------------------------------------------------------------------
+hideLivePlaces=no
+	hide live places of person. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideJobs=no
+	hide jobs of person. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideEducation=no
+	hide education of person. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideContact=no
+	hide emails and phones. Values: no/all (default no)
+----------------------------------------------------------------------------
+hideWeb=no
+	hide web pages. Values: no/all (default no)
+----------------------------------------------------------------------------
+hideReligion=no
+	hide all religion data. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideNationality=all
+	hide nationality and citizenship. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideUserDefined=no
+	hide user defined items. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideRegistryInfo=no
+	hide registry info. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hideHeads=no
+	hide head pictures. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+hidePhotos=no
+	hide photos. Values: no/live/all (default no)
+----------------------------------------------------------------------------
+
+
+	OTHER PARAMETERS
+----------------------------------------------------------------------------
+birthDeathSplitter=,&nbsp;
+	separator between date and place (used in property 'birth' and 'death')
+----------------------------------------------------------------------------
+fromToSplitter=&nbsp;&ndash;&nbsp;
+	separator between from and to (used in property 'fromTo' of Place, Job, Education ...)
+----------------------------------------------------------------------------
+toPrefix=do&nbsp;
+	separator between from and to when from is empty (used in property 'fromTo' of Place, Job, Education ...)
+----------------------------------------------------------------------------
+groupsOnly=
+	person filter; only person that belongs to these groups will be shown (names separated by semicolon).
+	In case it is empty all person will be shown.
+----------------------------------------------------------------------------
+groupsHide=skryte
+	person filter; person that belongs to these groups will be hide (names separated by semicolon). By default empty
+----------------------------------------------------------------------------
+locale=cs_CZ
+	what locale to use (used for sorting people in list).
+	In case it is empty, default system locale will be used. Example of codes: cs_CZ, en_GB, en_US
+----------------------------------------------------------------------------
+emptyPeople=true
+	in case person doesn't have mother or father the block (marked by block tags) is not generated by default.
+	if this option is true, the block is generated with empty fields
+	the -e parameter of application overwrite this
+----------------------------------------------------------------------------
+mainPersonId=0
+	id of main person - used in hierarchical list to decide who is the main person
+----------------------------------------------------------------------------
+addressSplitter=,
+	splitter used in addresses of people (e.g. "Long Street 28, London, 441 12, Great Britain" - splitter is comma)
+----------------------------------------------------------------------------
+townInAddressPosition=2
+	position of town (village) in live address (e.g. "Long Street 28, London, 441 12, Great Britain" - position of town is 2)
+----------------------------------------------------------------------------
+townInBirthPosition=1
+	position of town (village) in records: birth place, death place, burial place (e.g. "London, Chaplin's hospital" - position of town is 1)
+----------------------------------------------------------------------------
+useMaidenName=true
+	show "maiden name" and "first name" for tag "name". In case it is false show "last lastname" and "first name"
+----------------------------------------------------------------------------

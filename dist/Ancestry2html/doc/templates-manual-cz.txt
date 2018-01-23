@@ -1,0 +1,216 @@
+Manuál pro editaci a vytváření nových html templatů.
+Kompletní manuál použité knihovny freemarker naleznate na http://freemarker.sourceforge.net/docs (v angličtině)
+
+----------------------------------------------------------------------------------------------------
+
+V šablonách lze použít následující objekty:
+
+	objekt g (globální informace) a jeho použitelné vlastnosti
+
+		${g.author} ... autor souboru rod
+		${g.created} ... datum vytvoření rod souboru
+		${g.cooperated} ... osoby které spolupracovali na souboru rod
+		${g.rodUser1} ... jméno uživatelsky definované položky číslo 1
+		${g.rodUser2} ... jméno uživatelsky definované položky číslo 2
+		${g.rodUser3} ... jméno uživatelsky definované položky číslo 3
+		${g.rodUser4} ... jméno uživatelsky definované položky číslo 4
+		${g.rodUser5} ... jméno uživatelsky definované položky číslo 5
+		${g.today} ... datum vygenerování tohoto html (aktuální datum - bráno ze systému)
+		${g.generatorVersion} ... verze generátoru použitého při generování tohoto html
+		${g.ancestryVersion} ... verze programu Ancestry, ve kterém byl vytvořen soubor rod
+		${g.buildTime} ... číslo buildu aplikace
+
+	objekt peopleList - obsahuje seznam všech osob; základní použití je následující
+
+		<#list peopleList as person>
+			tento blok se bude opakovat pro každou osobu. V tomto bloku můžete přistupovat ke všem vlastnostem osoby přes proměnnou "person".
+			Např. ${person.firstname} atd.
+		</#list>
+
+	objekt placesList - obsahuje seznam všech míst; základní použití je následující
+
+		<#list placesList as place>
+			tento blok se bude opakovat pro každé místo. V tomto bloku můžete přistupovat ke všem vlastnostem osoby přes proměnnou "place".
+			Např. ${place.town} atd.
+		</#list>
+
+	objekt firstLetters - obsahuje seznam všech prvních písmen příjmení osob (použitelné na odkazy pro odskrolování na skupinu jmen začínajícím
+												na určité písmeno)
+
+	objekt osoba (jakou proměnnou použít místo xxx je popsáno níže):
+
+		${xxx.id} ... číslo osoby
+		${xxx.ident} ... identifikátor osoby pužívaný v programu Ancestry
+		${xxx.firstname} ... křestní jméno
+		${xxx.lastname} ... příjmení
+		${xxx.maidenname} ... rodné jméno
+		${xxx.secondname} ... rodné jméno nebo příjmení (záleží na nastavení)
+		${xxx.name} ... rodné jméno nebo příjmení (záleží na nastavení) + křestní jméno (s mezerou uprostřed)
+		${xxx.titleFront} ... titul před jménem
+		${xxx.titleBack} ... titul za jménem
+		${xxx.birthDate} ... datum narození
+		${xxx.birthPlace} ... místo narození
+		${xxx.birth} ... datum narození + místo narození (oddělovač je konfigurovatelný v konfiguračním souboru)
+		${xxx.deathDate} ... datum úmrtí
+		${xxx.deathPlace} ... místo úmrtí
+		${xxx.death} ... datum úmrtí + místo úmrtí (oddělovač je konfigurovatelný v konfiguračním souboru)
+		${xxx.fathersId} ... vrací číslo otce
+		${xxx.father} ... vrací otce (objekt osoba)
+		${xxx.mothersId} ... vrací číslo matky
+		${xxx.mother} ... vrací matku (objekt osoba)
+		${xxx.insertDate} ... datum přidání osoby do rod souboru
+		${xxx.changeDate} ... datum poslední změny údajů osoby
+		${xxx.live} ... vrací true pokud osoba žije (jinak false), používá se většinou s tagem <#if>
+		${xxx.dead} ... vrací true pokud osoba nežije
+		${xxx.male} ... vrací true pokud je osoba mužského pohlaví
+		${xxx.female} ... vrací true pokud je osoba ženského pohlaví
+		${xxx.head} ... vrací true pokud má osoba obrázek hlavy
+		${xxx.burialPlace} ... místo pohřbení
+		${xxx.deathCause} ... příčina úmrtí
+		${xxx.religion} ... náboženství
+		${xxx.christening} ... křest
+		${xxx.godparent1} ... první kmotr
+		${xxx.godparent2} ... druhý kmotr
+		${xxx.nationality} ... národnost
+		${xxx.citizenship} ... státní příslušnost
+		${xxx.email1} ... první email
+		${xxx.email2} ... druhý email
+		${xxx.phone1} ... první telefon
+		${xxx.phone2} ... druhý telefon
+		${xxx.web1} ... první web stránka
+		${xxx.web2} ... druhá web stránka
+		${xxx.web1http} ... první web stránka (přidá http:// pokud je potřeba), užitečné při použití v href atributu
+		${xxx.web2http} ... druhá web stránka (přidá http:// pokud je potřeba), užitečné při použití v href atributu
+		${xxx.userDef1} ... hodnota uživatelsky definované položky
+		${xxx.userDef2} ... hodnota uživatelsky definované položky
+		${xxx.userDef3} ... hodnota uživatelsky definované položky
+		${xxx.userDef4} ... hodnota uživatelsky definované položky
+		${xxx.userDef5} ... hodnota uživatelsky definované položky
+		${xxx.groups} ... tiskne seznam skupin, do kterých osoba patří
+		${xxx.group1} ... tiskne true pokud osoba patří do dané skupiny (skupiny jsou specifikovány v konfiguračním souboru)
+		${xxx.group2} ... tiskne true pokud osoba patří do dané skupiny (skupiny jsou specifikovány v konfiguračním souboru)
+		${xxx.group3} ... tiskne true pokud osoba patří do dané skupiny (skupiny jsou specifikovány v konfiguračním souboru)
+		${xxx.group4} ... tiskne true pokud osoba patří do dané skupiny (skupiny jsou specifikovány v konfiguračním souboru)
+		${xxx.group5} ... tiskne true pokud osoba patří do dané skupiny (skupiny jsou specifikovány v konfiguračním souboru)
+
+		${xxx.rightSiblings} ... seznam všech pravých sourozenců dané osoby (se stejnou matkou i otcem jako daná osoba).
+														 Použití s tagem <#list>. Např. <#list c.rightSiblings as rs> tělo bloku, ${rs.birth} </#if>.
+
+		${xxx.halfSiblings} ... seznam všech půl sourozenců dané osoby (buď se stejnou matkou nebo otcem jako daná osoba).
+														Použití s tagem <#list>.
+
+		${xxx.siblings} ... seznam všech sourozenců dané osoby (pravých sourozenců i půl sourozenců).
+												Použití s tagem <#list>.
+
+		${xxx.partners} ... seznam partnerů dané osoby. Použití s tagem <#list>.
+
+		${xxx.children} ... seznam potomků dané osoby. Použití s tagem <#list>.
+
+		${xxx.places} ... seznam míst, které má osoba uvedené jako bydliště. (vrací seznam objektů Bydliště - jeho vlastnosti jsou popsány níže)
+											Použití s tagem <#list>. Např. <#list c.places as place> ${place.address} </#list>
+
+		${xxx.jobs} ... seznam zaměstnání dané osoby. Použití s tagem <#list>.
+
+		${xxx.education} ... seznam vzdělání dané osoby. Použití s tagem <#list>.
+		${xxx.photos} ... seznam fotografií přiřazených k osobě. Použití s tagem <#list>.
+		${xxx.documents} ... seznam souborů přiřazených k osobě. Použití s tagem <#list>.
+		${xxx.credentials} ... seznam osobních dokladů a dokumentů přiřazených k osobě. Použití s tagem <#list>.
+		${xxx.hierarchy} ... umístění osoby v hierarchickém seznamu, 0 pro aktuální generaci, -1 děti, -2 vnoučata, -3 pravnoučata atd, 1 pro rodiče,
+												 2 pro prarodiče atd.
+
+	objekt "bydliště" a jeho vlastnosti:
+
+		${place.address} ... vrací adresu
+		${place.from} ... vrací datum od kdy osoba žila na daném místě
+		${place.to} ... vrací datum do kdy osoba žila na ddaném místě
+		${place.fromTo} ... vrací od + do (oddělovač je konfigurovatelný v konfiguračním souboru)
+
+	objekt "zaměstnání" a jeho vlastnosti:
+
+		${job.position} ...vrací pracovní pozici (např. sedlák)
+		${job.from} ... vrací datum od kdy osoba pracovala na daném místě
+		${job.to} ... vrací datum do kdy osoba pracovala na daném místě
+		${job.fromTo} ... vrací od + do (oddělovač je konfigurovatelný v konfiguračním souboru)
+
+	objekt "vzdělání" a jeho vlastnosti:
+
+		${education.name} ... vrací název školy
+		${education.from} ... vracíiskne datum od kdy se osoba vzdělávala na daném místě
+		${education.to} ... vrací datum do kdy se osoba vzdělávala na daném místě
+		${education.fromTo} ... vrací od + do (oddělovač je konfigurovatelný v konfiguračním souboru)
+
+	objekt "fotografie" a jeho vlastnosti
+
+		${photo.id} ... id fotografie
+		${photo.name} ... jmého fotografie
+		${photo.year} ... rok pořízení
+		${photo.description} ... popis fotografie
+		${photo.people} ... seznam přiřazených osob k fotografii
+
+	objekt "osoba-místo" a jeho vlastnosti
+
+		${place.town} ... jméno obce
+		${place.person} ... osoba příslušející k místu
+		${place.birthPlace} ... vrací true, narodila-li se osoba na tomto místě
+		${place.livePlace} ... vrací true, bydlela-li se osoba na tomto místě
+		${place.deathPlace} ... vrací true, umřela-li se osoba na tomto místě
+		${place.burialPlace} ... vrací true, je-li se osoba na tomto místě pohřbená
+
+	objekt "utils" a jeho metody:
+
+		${utils.getFirstLetter(text)} ... vrací první písmeno z textu (např. 'Ch')
+		${utils.isNewLetter(text, last)} ... porovná první písmeno textu a písmeno last; vrací true pokud jsou rozdílná		
+		${utils.getPersonalFile(int id)} ... vrací jméno souboru pro osobu s daným id
+		${utils.getPartnersFile(int id)} ... vrací jméno souboru pro partnerství s daným id
+		${utils.getListFile()} ... vrací jméno souboru s abecedním seznamem osob
+		${utils.getHierarchicalListFile()} ... vrací jméno souboru s hierarchickým seznamem osob
+		${utils.getIndexFile()} ... vrací jméno hlavního souboru s rozcestím
+		${utils.getPhotoFile(id)} ... vrací jméno souboru s detaily pro fotografii s daným id
+		${utils.getDocumentFile(id)} ... vrací jméno souboru s detaily pro soubor s daným id
+		${utils.getCredentialFile(id)} ... vrací jméno souboru s detaily pro osobní dokumenty s daným id
+		${utils.getPlacesListFile()} ... vrací jméno souboru se seznamem míst
+
+----------------------------------------------------------------------------------------------------
+
+Použití proměnných v šablonách (templatech):
+
+	Proměnné použitelné v šabloně pro seznam osob:
+
+		Lze použít proměnnou "g" s obecnými informacemi o vašem rodokmenu.
+		Lze použít proměnnou "peopleList" obsahující seznam všech osob.
+		Lze použít proměnnou "firstLetters" se seznamem všech prvních písmen příjmení osob
+		Lze použít proměnnou "utils".
+
+	Proměnné použitelné v šabloně pro seznam míst:
+
+		Lze použít proměnnou "placesList" obsahující seznam všech míst.
+		Lze použít proměnnou "utils".
+
+	Proměnné použitelné v šabloně pro detail fotografie:
+
+		Lze použít proměnnou "ph" s detaily fotografie.
+		Lze použít proměnnou "utils".
+
+	Proměnné použitelné v šabloně pro detail souboru:
+
+		Lze použít proměnnou "doc" s detaily souboru.
+		Lze použít proměnnou "utils".
+
+	Proměnné použitelné v šabloně pro detail osobního dokladu:
+
+		Lze použít proměnnou "cred" s detaily osobního dokladu.
+		Lze použít proměnnou "utils".				
+
+	Proměnné použitelné v šabloně pro detaily osoby:
+
+		Lze použít proměnnou "g" s obecnými informacemi o vašem rodokmenu.
+		Lze použít proměnnou "c" (jako aktuální osoba = current person), která obsahuje data aktuální osoby. Např. ${c.lastname}
+		Lze použít proměnnou "m" (jako matka), která obsahuje data matky aktuální osoby.
+		Lze použít proměnnou "f" (jako fotr = father), která obsahuje data otce aktuální osoby.
+		Lze použít proměnnou "ff" (jako father of father), která obsahuje data dědečka z otcovi strany aktuální osoby.
+		Lze použít proměnnou "mf" (jako mother of father), která obsahuje data babičky z otcovi strany aktuální osoby.
+		Lze použít proměnnou "fm" (jako father of mother), která obsahuje data dědečka z matčiny strany aktuální osoby.
+		Lze použít proměnnou "mm" (jako mother of mother), která obsahuje data babičky z matčiny strany aktuální osoby.
+		Lze použít proměnnou "utils".
+
+		K ostatním osobám lze přistupovat takto: např. ${mm.father.father.lastname} vypíše příjmení otce otce babičky z matčiny strany aktuální osoby.

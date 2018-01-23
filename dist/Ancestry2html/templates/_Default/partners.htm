@@ -1,0 +1,163 @@
+<#include "parts/header.htm"> 
+
+<#assign menu>
+	<div id="menu">
+		<div class="navigation">
+			<a href="javascript:history.back()">&larr; ${msg('navigation.backToPrevious')}</a><br/>
+			<a href="../${utils.indexFile}">&larr; ${msg('navigation.backToHome')}</a><br/><br/>
+			<a href="../${utils.listFile}">${msg('navigation.toList')}</a><br/>
+			<a href="../${utils.hierarchicalListFile}">${msg('navigation.toHierarchical')}</a>
+		</div>
+	</div>
+</#assign>
+
+<#if my.menu="top">${menu}</#if>
+
+<div class="groupBox">
+	<h1>${msg('partnership.headline')}</h1>
+
+	<div id="partner_0">
+		<#if !config.useMaidenName>
+			<p>
+				${msg('list.lastNamesInfo')}
+			</p>
+		</#if>
+	
+		<div class="block">
+			<#assign inc_name_persone=p.man/>
+			<#include "parts/name.htm"/><#if p.man.birthDate??>, ${p.man.birthDate}</#if>
+			&amp; 
+			<#assign inc_name_persone=p.woman/>
+			<#include "parts/name.htm"/><#if p.woman.birthDate??>, ${p.woman.birthDate}</#if></a>
+		</div>
+	
+		<#if p.married>
+			<div class="block aditional">
+				<#if p.marriageDate??>
+					${msg('partnership.weddingCeremony',p.marriageDate)}
+				<#else>
+					<#if ((config.isHideMarriageDate(p.man.live)) || (config.isHideMarriageDate(p.woman.live)))>
+						${msg('partnership.weddingCeremonyDateHidden')}
+					<#else>
+						${msg('partnership.weddingCeremonyNoDate')}
+					</#if>
+				</#if>
+				<#if p.marriagePlace??>${msg('partnership.weddingPlace',p.marriagePlace)}</#if>
+				<#if p.priest??>${msg('partnership.weddingPriest',p.priest)}</#if>
+				<#if p.witness??>${msg('partnership.weddingWitness',p.witness)}</#if>
+			</div>
+		</#if>
+	
+		<#assign coupleName><#if p.married>${msg('partnership.marriedCouple')}<#else>${msg('partnership.partners')}</#if></#assign>
+	
+		<#if (p.children?size>0)>
+			<div class="block aditional">
+				${msg('partnership.numberOfChildren',coupleName,p.children?size)}:
+				<ul>
+				<#list p.children as ch>
+					<li>
+						<#if ch.hidden>
+							${msg('person.hidden')}
+						<#else>
+							<#assign inc_name_persone=ch/>
+							<#include "parts/name.htm"/><#if ch.birthDate??>, ${ch.birthDate}</#if>
+						</#if>
+					</li>
+				</#list>
+				</ul>
+			</div>
+		<#else>
+			${msg('partnership.noChildren',coupleName)}
+		</#if>
+	
+		<#if p.married>
+			<div class="block aditional">
+				<#if p.divorced>
+					<#if p.divorceDate??>
+						${msg('partnership.divorcedDay',p.divorceDate)}
+					<#else>
+						${msg('partnership.divorced')}
+					</#if>
+				<#else>
+					<#if p.man.live && p.woman.live>
+						${msg('partnership.endToday')}
+					<#else>
+						${msg('partnership.endDeath')}
+					</#if>
+				</#if>
+			</div>
+		</#if>
+		
+		<#if p.married && p.marriageLength??>
+			<div class="block aditional">
+				<#if !p.divorced && p.man.live && p.woman.live>
+					<span title="${msg('stats.relevantToDate',g.today)}" class="hint">${msg('partnership.actualLength')}</span>
+				<#else>${msg('partnership.length')}
+				</#if>:
+			
+				<#if p.marriageLength.years??>${msg('person.years',p.marriageLength.years)}</#if>
+				<#if p.marriageLength.months??>${msg('person.months',p.marriageLength.months)}</#if>
+				<#if p.marriageLength.days??>${msg('person.days',p.marriageLength.days)}</#if>
+	
+				(${msg('partnership.days',p.marriageLength.onlyDays)})
+			</div>
+		</#if>
+	</div>
+	
+	<#if (p.photos?size>0)>
+		<div id="partner_1">
+			<div class="block aditional">
+				<b>${msg('person.photos')}:</b>
+				<ul>
+					<#list p.photos as ph>
+					<li>
+						<a href="../${utils.photoFile(ph.id)}"
+							onmouseover="javascript:document.getElementById('p${ph.id}').style.display='block'"
+							onmouseout="javascript:document.getElementById('p${ph.id}').style.display='none'">${ph.name}</a><br/>
+						<div class="miniphoto" id="p${ph.id}"><img class="miniphoto" src="../imgs/minifoto${ph.id}.jpg" alt="miniphoto"/></div>
+						&nbsp;
+					</li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+	</#if>
+	
+	<#if (p.documents?size>0)>
+		<div id="partner_2">
+			<div class="block aditional">
+				<b>${msg('person.documents')}:</b>
+				<ul>
+					<#list p.documents as d>
+						<li>
+						 	<a href="../${utils.documentFile(d.id)}">${d.name}</a><br/>
+						</li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+	</#if>
+	
+	<#if (p.credentials?size>0)>
+		<div id="partner_3">
+			<div class="block aditional">
+				<b>${msg('person.credentials')}:</b>
+				<ul>
+					<#list p.credentials as cred>
+						<li>
+							<a href="../${utils.credentialFile(cred.id)}"
+								onmouseover="javascript:document.getElementById('c${cred.id}').style.display='block'"
+								onmouseout="javascript:document.getElementById('c${cred.id}').style.display='none'">${cred.name}</a><br/>
+							<div class="miniphoto" id="c${cred.id}"><img class="miniphoto" src="../imgs/minicredential${cred.id}.jpg" alt="miniphoto"/></div>
+							&nbsp;
+						</li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+	</#if>
+</div>
+
+<#if my.menu="bottom">${menu}</#if>
+
+<#include "parts/footer.htm"> 
