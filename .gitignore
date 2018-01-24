@@ -1,3 +1,7 @@
+#Ancestry2html specific
+dist/Ancestry2html/lib/*.jar
+#/Ancestry2html specific
+
 #VSCode
 .vscode/*
 !.vscode/settings.json
@@ -57,6 +61,21 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 #/JetBrains
+
+#Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+#/Maven
 
 #macOS
 # General
