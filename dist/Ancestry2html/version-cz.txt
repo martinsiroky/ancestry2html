@@ -2,6 +2,10 @@ Ancestry2html je program sloužící k vytváøení html stránek pro zobrazování strom
 
 Historie verzí programu:
 
+Verze 1.4.5-devel:
+24.1.2018 - Pøevod na Github.com
+          - Opraveny vizuální bugy v GUI
+
 Verze 1.4.3.4:
 28.4.2010 - Pøidán nìmecký jazyk pro generování. Oprava statistik pøi délce života 0 dní.
 

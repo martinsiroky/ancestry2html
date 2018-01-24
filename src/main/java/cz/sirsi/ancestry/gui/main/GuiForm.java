@@ -337,9 +337,9 @@ public class GuiForm extends JFrame implements Constants {
 			// if output folder contains setting of window used in last generation
 			if (lastSettingsFile.exists()) {
 				// TODO localize: JOptionPane jOptionPane = new JOptionPane(-);
-				int result = JOptionPane.showConfirmDialog(this, GuiTools.getLocalized("selectOutput.loadSettings"), GuiTools
+				int result = JOptionPane.showConfirmDialog(this, GuiTools.getLocalized("selectOutput.loadSettings", null, new String[] { "\n" }), GuiTools
 						.getLocalized("selectOutput.loadSettings.title"), JOptionPane.YES_NO_OPTION);
-				if (result == JOptionPane.YES_OPTION) {
+                if (result == JOptionPane.YES_OPTION) {
 					GuiTools.readIniProperties(file);
 					initializeComponent();
 					this.templatesManager.repaintPreview();
@@ -402,29 +402,28 @@ public class GuiForm extends JFrame implements Constants {
 	 */
 	public void checkForNewVersion(boolean showNotFound) {
 		try {
-			// TODO load from config
-			URL url = new URL("http://sirsi.wz.cz/data/download/Ancestry2html.version?version=" + Tools.getVersion());
+		    URL url = new URL("https://raw.githubusercontent.com/martinsiroky/ancestry2html/master/latestVersion");
 
-			URLConnection connection = url.openConnection();
-			connection.setConnectTimeout(20000);
-			InputStream in = connection.getInputStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-			String version = reader.readLine();
-			if (Tools.compareTwoVersions(Tools.getVersion(), version) < 0) {
-				int result = JOptionPane.showConfirmDialog(this, GuiTools.getLocalized("newerVersion.download", null, new String[] { version,
-						Tools.getVersion() }), GuiTools.getLocalized("newerVersion.download.title"), JOptionPane.YES_NO_OPTION);
-				if (result == JOptionPane.YES_OPTION) {
-					try {
-						// TODO download exact zip or setup
-						Desktop.getDesktop().browse(new URI("http://sirsi.wz.cz/ancestry2html.php"));
-					} catch (Exception e) {
-						log.error("Can not open generated file in default browser", e);
-					}
-				}
-			} else if (showNotFound) {
-				JOptionPane.showMessageDialog(this, GuiTools.getLocalized("newerVersion.notFound"), GuiTools
-						.getLocalized("newerVersion.notFound.title"), JOptionPane.INFORMATION_MESSAGE);
-			}
+            URLConnection connection = url.openConnection();
+            connection.setConnectTimeout(20000);
+            InputStream in = connection.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            String version = reader.readLine();
+
+            if (Tools.compareTwoVersions(Tools.getVersion(), version) < 0) {
+                int result = JOptionPane.showConfirmDialog(this, GuiTools.getLocalized("newerVersion.download", null, new String[] { version,
+                        Tools.getVersion(), "\n" }), GuiTools.getLocalized("newerVersion.download.title"), JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) {
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://github.com/martinsiroky/ancestry2html/releases"));
+                    } catch (Exception e) {
+                        log.error("Can not open generated file in default browser", e);
+                    }
+                }
+            } else if (showNotFound) {
+                JOptionPane.showMessageDialog(this, GuiTools.getLocalized("newerVersion.notFound"), GuiTools
+                        .getLocalized("newerVersion.notFound.title"), JOptionPane.INFORMATION_MESSAGE);
+            }
 		} catch (Throwable t) {
 			JOptionPane.showMessageDialog(this, GuiTools.getLocalized("newerVersion.error"), GuiTools.getLocalized("newerVersion.error.title"),
 					JOptionPane.INFORMATION_MESSAGE);
@@ -996,11 +995,11 @@ public class GuiForm extends JFrame implements Constants {
 			}
 			{
 				this.comboGuiLanguage = new JComboBox();
-				this.panelBasicSettings.add(this.comboGuiLanguage, new CellConstraints("10, 24, 1, 1, right, default"));
+				this.panelBasicSettings.add(this.comboGuiLanguage, new CellConstraints("10, 23, 1, 1, right, default"));
 			}
 			{
 				this.checkOpenBrowser = new JCheckBox();
-				this.panelBasicSettings.add(this.checkOpenBrowser, new CellConstraints("9, 23, 2, 1, default, default"));
+				this.panelBasicSettings.add(this.checkOpenBrowser, new CellConstraints("9, 22, 2, 1, default, default"));
 				this.checkOpenBrowser.setText("Open browser when generated");
 			}
 			{
@@ -1024,17 +1023,17 @@ public class GuiForm extends JFrame implements Constants {
 			}
 			{
 				this.checkAutoclose = new JCheckBox();
-				this.panelBasicSettings.add(this.checkAutoclose, new CellConstraints("9, 22, 2, 1, default, default"));
+				this.panelBasicSettings.add(this.checkAutoclose, new CellConstraints("9, 21, 2, 1, default, default"));
 				this.checkAutoclose.setText("Close window after generating");
 			}
 			{
 				this.comboCheckNewVersion = new JComboBox();
-				this.panelBasicSettings.add(this.comboCheckNewVersion, new CellConstraints("10, 20, 1, 1, default, default"));
+				this.panelBasicSettings.add(this.comboCheckNewVersion, new CellConstraints("10, 19, 1, 1, default, default"));
 			}
 			{
 				this.labelCheckNewVersion = new JLabel();
 				this.labelCheckNewVersion.setText("Check new version");
-				this.panelBasicSettings.add(this.labelCheckNewVersion, new CellConstraints("9, 20, 1, 1, default, default"));
+				this.panelBasicSettings.add(this.labelCheckNewVersion, new CellConstraints("9, 19, 1, 1, default, default"));
 			}
 			{
 				this.separatorPrivacy2 = new JSeparator();
@@ -1048,7 +1047,7 @@ public class GuiForm extends JFrame implements Constants {
 			}
 			{
 				this.buttonCheckNow = new JButton();
-				this.panelBasicSettings.add(this.buttonCheckNow, new CellConstraints("9, 21, 2, 1, default, default"));
+				this.panelBasicSettings.add(this.buttonCheckNow, new CellConstraints("9, 20, 2, 1, default, default"));
 				this.buttonCheckNow.setText("Check new version now!");
 				this.buttonCheckNow.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
