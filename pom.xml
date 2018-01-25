@@ -107,7 +107,7 @@
 	</dependencies>
 	
 	<description>Tool for generating html pages for your family tree created in Ancestry (http://ancestry.nethar.com) application. It can be used as standalone application or as a plugin of Ancestry. Application is absolutely free.</description>
-	<url>http://sirsi.wz.cz/Ancestry2html.php</url>
+	<url>https://github.com/martinsiroky/ancestry2html</url>
 
 	<scm>
 		<connection>

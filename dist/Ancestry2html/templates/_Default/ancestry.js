@@ -1,7 +1,7 @@
 var longFilter = false;
 
 function printFooterText() {
-	document.write("${msg('footer.text','<a href=\'http://sirsi.wz.cz/ancestry2html.php\' target=\'_blank\'>Ancestry2html ${g.generatorVersion}</a>',g.today,'<a href=\'http://ancestry.nethar.com\' target=\'_blank\'>Ancestry ${g.ancestryVersion}</a>')}");	
+	document.write("${msg('footer.text','<a href=\'https://github.com/martinsiroky/ancestry2html\' target=\'_blank\'>Ancestry2html ${g.generatorVersion}</a>',g.today,'<a href=\'http://ancestry.nethar.com\' target=\'_blank\'>Ancestry ${g.ancestryVersion}</a>')}");	
 }
 
 function show(idecko)
