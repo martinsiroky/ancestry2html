@@ -1,6 +1,19 @@
 # ancestry2html
 Html export extension for Ancestry application (https://ancestry.nethar.cz/)
 
-Build by package.bat, then you can run application via "dist\Ancestry2html\lib\Ancestry2html-1.4.4-SNAPSHOT.jar"
+# Recommended IDE
+JetBrains IntelliJ IDEA - https://www.jetbrains.com/idea/
 
-Absolute paths in buildReleasedVersion.sh (runnable via cygwin) will be fixed soon.
+# Building
+You can use command line or IntelliJ IDEA:
+
+## Command line
+- Navigate to the working dir and run `mvn clean install package`
+- Copy `Ancestry2html-xxxxx.jar` file from `target/` in root of project to `dist/Ancestry2html/lib/`
+- Now you can run it from `dist/Ancestry2html/lib/`
+
+## IntelliJ IDEA
+- Open Ancestry2html project in IntelliJ IDEA and add Maven build configuration.
+- Build it
+- Copy `Ancestry2html-xxxxx.jar` file from `target/` in root of project to `dist/Ancestry2html/lib/`
+- Now you can run it from `dist/Ancestry2html/lib/`
