@@ -126,6 +126,8 @@ public class Messages {
 			message = format.format(params);
 		}
 
+		message = message.replaceAll("\\\\n", "\n");
+
 		return message;
 	}
 
