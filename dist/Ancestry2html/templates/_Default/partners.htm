@@ -52,7 +52,11 @@
 	
 		<#if (p.children?size>0)>
 			<div class="block aditional">
-				${msg('partnership.numberOfChildren',coupleName,p.children?size)}:
+				<#if p.man.live && p.woman.live>
+					${msg('partnership.numberOfChildren',coupleName,p.children?size)}:
+				<#else>
+					${msg('partnership.numberOfChildren.past',coupleName,p.children?size)}:
+				</#if>
 				<ul>
 				<#list p.children as ch>
 					<li>
@@ -91,9 +95,10 @@
 		<#if p.married && p.marriageLength??>
 			<div class="block aditional">
 				<#if !p.divorced && p.man.live && p.woman.live>
-					<span title="${msg('stats.relevantToDate',g.today)}" class="hint">${msg('partnership.actualLength')}</span>
-				<#else>${msg('partnership.length')}
-				</#if>:
+				<span title="${msg('stats.relevantToDate',g.today)}" class="hint">${msg('partnership.actualLength')}:</span>
+			<#else>
+				${msg('partnership.length')}:
+			</#if>
 			
 				<#if p.marriageLength.years??>${msg('person.years',p.marriageLength.years)}</#if>
 				<#if p.marriageLength.months??>${msg('person.months',p.marriageLength.months)}</#if>

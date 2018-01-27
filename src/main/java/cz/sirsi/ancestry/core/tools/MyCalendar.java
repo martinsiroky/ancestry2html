@@ -1,10 +1,10 @@
 package cz.sirsi.ancestry.core.tools;
 
+import cz.sirsi.ancestry.core.configuration.MessagesTools;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import cz.sirsi.ancestry.core.configuration.MessagesTools;
 
 /**
  * Small composition of GregorianCalendar that allows work with not exact dates (like e.g. ?.1.1990) - does not provide all methods as
@@ -140,6 +140,10 @@ public class MyCalendar {
 
 		if (hasOnlyText()) {
 			return this.textRepresentationIfNotParseble;
+		}
+
+		if (!this.day && !this.month) {
+			return Integer.toString(this.get(Calendar.YEAR));
 		}
 
 		return dateFormat.replaceAll("yyyy", (this.year ? Integer.toString(this.get(Calendar.YEAR)) : "?")).replaceAll("MM",

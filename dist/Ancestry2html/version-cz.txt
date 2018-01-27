@@ -1,10 +1,16 @@
-Ancestry2html je program sloužící k vytváøení html stránek pro zobrazování stromu rodokmenu vytvoøeného v programu Ancestry. Mùže být spuštìn jako samostatný program nebo pøímo jako modul z menu Ancestry. Program je zcela zdarma. Další informace naleznete na stránkách https://github.com/martinsiroky/ancestry2html.
+Ancestry2html je program sloužící k vytváøení html stránek pro zobrazování stromu rodokmenu vytvoøeného v programu Ancestry. Mùže být spuštìn jako samostatný program nebo pøímo jako modul z menu Ancestry. Program je zcela zdarma. Další informace naleznete na stránkách http://sirsi.wz.cz/ancestry2html.php.
 
 Historie verzí programu:
 
 Verze 1.4.5-devel:
 24.1.2018 - Pøevod na Github.com
           - Opraveny vizuální bugy v GUI
+
+Version 1.4.4.1:
+26.10.2016 - Odstranìn problém s kontrolou nové verze (nepøístupný web sirsi.wz.cz)
+
+Version 1.4.4:
+11.9.2016 - Kompatibilita spouštìcího exe souboru s Javou 7 and 8
 
 Verze 1.4.3.4:
 28.4.2010 - Pøidán nìmecký jazyk pro generování. Oprava statistik pøi délce života 0 dní.

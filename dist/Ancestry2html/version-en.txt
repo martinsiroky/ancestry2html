@@ -1,10 +1,16 @@
-Ancestry2html is tool for generating html pages for your family tree created in Ancestry application. It can be used as standalone application or as a plugin of Ancestry. Application is absolutely free. Other information you can find on https://github.com/martinsiroky/ancestry2html.
+Ancestry2html is tool for generating html pages for your family tree created in Ancestry application. It can be used as standalone application or as a plugin of Ancestry. Application is absolutely free. Other information you can find on http://sirsi.wz.cz/ancestry2html.php (only in czech).
 
 History of version:
 
 Version 1.4.5-devel:
 24.1.2018 - Transfer under Github.com
           - Fixed visual bugs inside GUI
+
+Version 1.4.4.1:
+26.10.2016 - Fixed problem with new version checking (unavailable web sirsi.wz.cz)
+
+Version 1.4.4:
+11.9.2016 - Java 7 and 8 compatibility of exe wrapper
 
 Version 1.4.3.4:
 28.4.2010 - German language added for generating. Fixed problem with 0-days long live in statistics.
