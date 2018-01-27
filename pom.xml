@@ -6,7 +6,7 @@
 	<groupId>cz.sirsi.Ancestry2html</groupId>
 	<artifactId>Ancestry2html</artifactId>
 	<name>Old-Ancestry2html</name>
-	<version>1.4.4-SNAPSHOT</version>
+	<version>1.4.4.2-SNAPSHOT</version>
 
 	<dependencies>
 

@@ -59,6 +59,7 @@
 "partnership.marriedCouple";"Manželé";"Couple";"Manželia";"Eheleute"
 "partnership.noChildren";"{0} spolu nemají žádné děti.";"{0} has no children.";"{0} spolu nemajú žiadne deti.";"{0} zusammen haben keine Kinder."
 "partnership.numberOfChildren";"{0} spolu mají {1} {1, choice, 1#dítě|2#děti|5#dětí}";"{0} has {1} {1, choice, 1#child|2#children}";"{0} spolu majú {1} {1, choice, 1#dieťa|2#deti|5#detí}";"{0} Sie haben zusammen {1} {1, choice, 1#Kind|2#Kinder|5#Kinder}"
+"partnership.numberOfChildren.past";"{0} spolu měli {1} {1, choice, 1#dítě|2#děti|5#dětí}";"{0} had {1} {1, choice, 1#child|2#children}";"{0} spolu mali {1} {1, choice, 1#dieťa|2#deti|5#detí}";"{0} Sie haben zusammen {1} {1, choice, 1#Kind|2#Kinder|5#Kinder}"
 "partnership.partners";"Partneři";"Couple";"Partneri";"Partner"
 "partnership.weddingCeremony";"Svatební obřad této dvojice se uskutečnil {0}.";"Wedding ceremony came true {0}.";"Svadobný obrad tejto dvojice sa uskutočnil {0}.";"Die Trauung dieses Paares fand statt {0}."
 "partnership.weddingCeremonyNoDate";"Není známo, kdy se uskutečnila svatba této dvojice.";"It is not known, when was wedding of this couple.";"Nie je známe, kedy sa uskutočnila svadba tejto dvojice.";"Es ist nicht bekannt, wann die Hochzeit dieses Paares stattgefunden hat."
