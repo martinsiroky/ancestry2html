@@ -1,4 +1,4 @@
-Ancestry2html is tool for generating html pages for your family tree created in Ancestry application. It can be used as standalone application or as a plugin of Ancestry. Application is absolutely free. Other information you can find on http://sirsi.wz.cz/ancestry2html.php (only in czech).
+Ancestry2html is tool for generating html pages for your family tree created in Ancestry application. It can be used as standalone application or as a plugin of Ancestry. Application is absolutely free. Other information you can find on https://github.com/martinsiroky/ancestry2html.
 
 History of version:
 
