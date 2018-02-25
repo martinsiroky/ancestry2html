@@ -113,7 +113,7 @@
 "progress.generatingFile";"Generuji soubor {0}.";"Generating file {0}.";"Generujem súbor {0}."
 "progress.generatingFileDone";"Soubor {0} vygenerován.";"File {0} generated.";"Súbor {0} vygenerovaný."
 "process.readingRodLine";"Zpracovávání rod souboru - řádek {0}.";"Processing rod file – line {0}.";"Spracovávanie rod súboru - riadok {0}."
-"passwordRequired.title";"Zadejte heslo";"Type password";"Zadajte heslo"
+"passwordRequired.title";"Zadejte heslo";"Enter password";"Zadajte heslo"
 "passwordRequired";"Soubor se nepodařilo otevřít. Pravděpodobně je chráněn heslem (nebo poškozen). Zadejte prosím heslo pro otevření.";"Opening file failed. It is probably protected by password (or corrupted). Please enter password for opening";"Súbor sa nepodarilo otvoriť. Pravdepodobne je chránený heslom (alebo poškodený). Zadajte, prosím, heslo na otvorenie."
 "check.showInfoAllowed";"Zobrazit povolené na index.htm";"Show allowed on index.htm";"Zobraziť povolené na index.htm"
 "check.showInfoAllowed.tip";"Zobrazit informace o povolených skupinách na index.htm";"Show info about allowed groups on index.htm";"Zobraziť informácie o povolených skupinách na index.htm"
